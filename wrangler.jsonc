@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "preview",
+  "compatibility_date": "2026-04-02",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "hospital-hsp-i"
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
+}
