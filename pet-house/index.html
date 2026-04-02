@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paws & Play | Demo Preview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      tailwind.config = {
+        theme: { extend: { fontFamily: { sans: ["Inter", "sans-serif"] } } },
+      };
+    </script>
+    <style>
+      body {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+    </style>
+  </head>
+  <body
+    class="font-sans text-slate-800 bg-slate-50 min-h-screen selection:bg-amber-200 selection:text-amber-900"
+  >
+    <div
+      style="
+        position: fixed;
+        bottom: 16px;
+        right: 16px;
+        background: rgba(15, 23, 42, 0.9);
+        color: #fff;
+        padding: 8px 16px;
+        border-radius: 999px;
+        z-index: 99999;
+        font-weight: 700;
+        font-size: 12px;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        pointer-events: none;
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      "
+    >
+      Created by MyanCode
+    </div>
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <div class="flex items-center gap-2 cursor-pointer">
+            <div class="bg-amber-500 text-white p-2 rounded-lg">
+              <i data-lucide="heart" class="w-6 h-6 fill-current"></i>
+            </div>
+            <span class="font-bold text-2xl text-slate-900 tracking-tight"
+              >Paws<span class="text-amber-500">&</span>Play</span
+            >
+          </div>
+          <nav class="hidden md:flex space-x-8 items-center">
+            <a
+              href="#services"
+              class="text-slate-600 hover:text-amber-500 font-medium transition-colors"
+              >Services</a
+            ><a
+              href="#about"
+              class="text-slate-600 hover:text-amber-500 font-medium transition-colors"
+              >About</a
+            ><a
+              href="#pricing"
+              class="text-slate-600 hover:text-amber-500 font-medium transition-colors"
+              >Pricing</a
+            ><a
+              href="#contact"
+              class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-2.5 rounded-full font-medium transition-colors shadow-md shadow-amber-500/30 flex items-center gap-2"
+              ><i data-lucide="lock" class="w-4 h-4"></i> Purchase Full</a
+            >
+          </nav>
+          <div class="md:hidden flex items-center">
+            <button
+              id="btn-m"
+              class="text-slate-600 hover:text-slate-900 focus:outline-none"
+            >
+              <i data-lucide="menu" id="ic-m" class="w-7 h-7"></i
+              ><i data-lucide="x" id="ic-x" class="w-7 h-7 hidden"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        id="m-menu"
+        class="hidden md:hidden bg-white border-t border-slate-100 px-4 pt-2 pb-6 space-y-1 shadow-lg absolute w-full"
+      >
+        <a
+          href="#services"
+          class="block px-3 py-3 text-base font-medium text-slate-700 hover:bg-amber-50 hover:text-amber-600 rounded-md"
+          >Services</a
+        ><a
+          href="#contact"
+          class="block mt-4 text-center bg-amber-500 hover:bg-amber-600 text-white px-3 py-3 rounded-md font-medium"
+          ><i data-lucide="lock" class="w-4 h-4 inline"></i> Purchase Full</a
+        >
+      </div>
+    </header>
+    <section
+      class="relative bg-slate-900 pt-20 pb-24 md:pt-32 md:pb-32 overflow-hidden"
+    >
+      <div class="absolute inset-0 z-0">
+        <img
+          src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+          alt="Happy dogs running"
+          class="w-full h-full object-cover opacity-30"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent"
+        ></div>
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-2xl">
+          <div
+            class="inline-block px-4 py-1.5 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 font-medium text-sm mb-6"
+          >
+            Demo Version Active
+          </div>
+          <h1
+            class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6"
+          >
+            Premium Care for Your
+            <span class="text-amber-500">Furry Best Friends.</span>
+          </h1>
+          <p class="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed">
+            Whether you're at work or on vacation, we provide professional,
+            loving care for your pets. From energetic walks to cozy cuddles, we
+            treat them like our own.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="#pricing"
+              class="bg-amber-500 hover:bg-amber-600 text-white text-center px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg shadow-amber-500/30 flex justify-center items-center gap-2"
+              >View Demo Features</a
+            >
+          </div>
+          <div
+            class="mt-12 grid grid-cols-3 gap-6 border-t border-white/10 pt-8"
+          >
+            <div>
+              <p class="text-3xl font-bold text-white mb-1">500+</p>
+              <p class="text-slate-400 text-sm">Happy Pets</p>
+            </div>
+            <div>
+              <p
+                class="text-3xl font-bold text-white mb-1 flex items-center gap-1"
+              >
+                5
+                <i
+                  data-lucide="star"
+                  class="w-5 h-5 text-amber-500 fill-current"
+                ></i>
+              </p>
+              <p class="text-slate-400 text-sm">Star Ratings</p>
+            </div>
+            <div>
+              <p class="text-3xl font-bold text-white mb-1">10+</p>
+              <p class="text-slate-400 text-sm">Years Exp.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="about" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row items-center gap-16">
+          <div class="lg:w-1/2 relative">
+            <div
+              class="absolute inset-0 bg-amber-500 rounded-3xl transform translate-x-4 translate-y-4"
+            ></div>
+            <img
+              src="https://images.unsplash.com/photo-1587559070757-f72a388edbba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+              alt="Vet examining dog"
+              class="relative rounded-3xl z-10 w-full h-[500px] object-cover shadow-xl"
+            />
+          </div>
+          <div class="lg:w-1/2">
+            <h2
+              class="text-amber-500 font-bold tracking-wider uppercase text-sm mb-2"
+            >
+              Why Choose Us
+            </h2>
+            <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+              We're crazy about pets, and serious about care.
+            </h3>
+            <p class="text-slate-600 mb-8 text-lg leading-relaxed">
+              Leaving your pet is never easy. That's why we've built a team of
+              passionate, certified, and fully insured pet lovers. We go above
+              and beyond to ensure your furry friends are safe, engaged, and
+              genuinely happy while you're away.
+            </p>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check-circle-2"
+                  class="w-6 h-6 text-amber-500 flex-shrink-0 mt-0.5"
+                ></i
+                ><span class="text-slate-700"
+                  >Fully insured, bonded, and background-checked staff.</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i
+                  data-lucide="check-circle-2"
+                  class="w-6 h-6 text-amber-500 flex-shrink-0 mt-0.5"
+                ></i
+                ><span class="text-slate-700"
+                  >Pet CPR and First Aid certified caregivers.</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="services" class="py-20 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <h2
+            class="text-amber-500 font-bold tracking-wider uppercase text-sm mb-2"
+          >
+            Our Services
+          </h2>
+          <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            Everything Your Pet Needs
+          </h3>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1602273660098-59c43cb4e4db?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Dog Walking"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-6 relative">
+              <div
+                class="absolute -top-10 right-6 bg-white p-3 rounded-2xl shadow-lg"
+              >
+                <i data-lucide="activity" class="w-8 h-8 text-amber-500"></i>
+              </div>
+              <h4 class="text-xl font-bold text-slate-900 mb-3 mt-2">
+                Dog Walking
+              </h4>
+              <p class="text-slate-600 mb-4 text-sm leading-relaxed">
+                Daily walks to keep your dog healthy, happy, and well-exercised
+                while you're at work.
+              </p>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Pet Grooming"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-6 relative">
+              <div
+                class="absolute -top-10 right-6 bg-white p-3 rounded-2xl shadow-lg"
+              >
+                <i data-lucide="scissors" class="w-8 h-8 text-amber-500"></i>
+              </div>
+              <h4 class="text-xl font-bold text-slate-900 mb-3 mt-2">
+                Pet Grooming
+              </h4>
+              <p class="text-slate-600 mb-4 text-sm leading-relaxed">
+                Professional bathing, haircuts, and nail trimming to keep your
+                pet looking their best.
+              </p>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1544568100-847a948585b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Pet Boarding"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-6 relative">
+              <div
+                class="absolute -top-10 right-6 bg-white p-3 rounded-2xl shadow-lg"
+              >
+                <i data-lucide="home" class="w-8 h-8 text-amber-500"></i>
+              </div>
+              <h4 class="text-xl font-bold text-slate-900 mb-3 mt-2">
+                Pet Boarding
+              </h4>
+              <p class="text-slate-600 mb-4 text-sm leading-relaxed">
+                Safe and comfortable overnight stays with plenty of playtime and
+                cuddle sessions.
+              </p>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="In-Home Sitting"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-6 relative">
+              <div
+                class="absolute -top-10 right-6 bg-white p-3 rounded-2xl shadow-lg"
+              >
+                <i data-lucide="heart" class="w-8 h-8 text-amber-500"></i>
+              </div>
+              <h4 class="text-xl font-bold text-slate-900 mb-3 mt-2">
+                In-Home Sitting
+              </h4>
+              <p class="text-slate-600 mb-4 text-sm leading-relaxed">
+                We come to you! Stress-free care for your pets in the comfort of
+                their own home.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="pricing" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <h2
+            class="text-amber-500 font-bold tracking-wider uppercase text-sm mb-2"
+          >
+            Pricing Plans
+          </h2>
+          <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            Simple, Transparent Pricing
+          </h3>
+          <p class="text-slate-600 text-lg">
+            Demo version limits visible packages. Purchase the full source code
+            to unlock all layouts and components.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div class="rounded-3xl p-8 border-2 border-slate-100 bg-slate-50">
+            <div class="text-center mb-8">
+              <h4 class="text-xl font-bold text-slate-900 mb-2">Quick Visit</h4>
+              <div class="flex justify-center items-end gap-1 text-slate-900">
+                <span class="text-4xl font-extrabold">$25</span>
+              </div>
+              <p class="text-slate-500 text-sm mt-2">Per 30 Min Visit</p>
+            </div>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-center gap-3">
+                <i
+                  data-lucide="check-circle-2"
+                  class="w-5 h-5 text-amber-500 flex-shrink-0"
+                ></i
+                ><span class="text-slate-700 text-sm">Potty break</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i
+                  data-lucide="check-circle-2"
+                  class="w-5 h-5 text-amber-500 flex-shrink-0"
+                ></i
+                ><span class="text-slate-700 text-sm"
+                  >Feeding & fresh water</span
+                >
+              </li>
+            </ul>
+            <button
+              class="w-full py-3 rounded-xl font-bold transition-colors bg-slate-200 text-slate-900 cursor-not-allowed"
+            >
+              Demo Active
+            </button>
+          </div>
+          <div
+            class="md:col-span-2 rounded-3xl p-8 border-2 border-dashed border-slate-300 bg-slate-100 flex flex-col items-center justify-center text-center relative overflow-hidden"
+          >
+            <div
+              class="absolute inset-0 backdrop-blur-sm bg-slate-900/5 z-10"
+            ></div>
+            <div class="relative z-20">
+              <i
+                data-lucide="lock"
+                class="w-12 h-12 text-slate-400 mx-auto mb-4"
+              ></i>
+              <h4 class="text-2xl font-bold text-slate-900 mb-2">
+                Premium Layouts Locked
+              </h4>
+              <p class="text-slate-500 mb-6">
+                Purchase the full source code to unlock Advanced Packages,
+                Contact Forms, FAQ Modules, Testimonial Sliders, and clean
+                unminified source files.
+              </p>
+              <button
+                class="px-8 py-3 rounded-xl font-bold transition-colors bg-amber-500 hover:bg-amber-600 text-white shadow-lg"
+              >
+                Purchase Source Code
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center text-sm"
+        >
+          <p>
+            &copy;
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            Paws & Play Pet Care Demo. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      (function () {
+        const _0x1a = [
+          "contextmenu",
+          "preventDefault",
+          "keydown",
+          "ctrlKey",
+          "key",
+          "shiftKey",
+          "F12",
+          "u",
+          "s",
+          "c",
+          "I",
+          "addEventListener",
+          "getElementById",
+          "btn-m",
+          "m-menu",
+          "ic-m",
+          "ic-x",
+          "click",
+          "hidden",
+          "toggle",
+          "classList",
+        ];
+        document[_0x1a[11]](_0x1a[0], (e) => e[_0x1a[1]]());
+        document[_0x1a[11]](_0x1a[2], (e) => {
+          if (
+            e[_0x1a[3]] &&
+            (e[_0x1a[4]] === _0x1a[7] ||
+              e[_0x1a[4]] === _0x1a[8] ||
+              e[_0x1a[4]] === _0x1a[9])
+          )
+            e[_0x1a[1]]();
+          if (e[_0x1a[4]] === _0x1a[6]) e[_0x1a[1]]();
+          if (e[_0x1a[3]] && e[_0x1a[5]] && e[_0x1a[4]] === _0x1a[10])
+            e[_0x1a[1]]();
+        });
+        lucide.createIcons();
+        const b = document[_0x1a[12]](_0x1a[13]);
+        const m = document[_0x1a[12]](_0x1a[14]);
+        const i1 = document[_0x1a[12]](_0x1a[15]);
+        const i2 = document[_0x1a[12]](_0x1a[16]);
+        if (b)
+          b[_0x1a[11]](_0x1a[17], () => {
+            m[_0x1a[20]][_0x1a[19]](_0x1a[18]);
+            i1[_0x1a[20]][_0x1a[19]](_0x1a[18]);
+            i2[_0x1a[20]][_0x1a[19]](_0x1a[18]);
+          });
+      })();
+    </script>
+  </body>
+</html>
